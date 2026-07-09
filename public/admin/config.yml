@@ -12,7 +12,7 @@ backend:
   branch: main
   # URL of your deployed sveltia-cms-auth OAuth relay (see README → Content editing).
   # Replace this placeholder before the CMS login will work.
-  base_url: https://sveltia-cms-auth.bdreyn.workers.dev/callback
+  base_url: https://sveltia-cms-auth.bdreyn.workers.dev
 
 # Uploaded photos are stored in the repo and served from the built site.
 media_folder: "public/images/uploads"
