@@ -1,0 +1,10 @@
+{
+  "title": "Spring Bake Sale",
+  "description": "Our annual spring fundraiser with all proceeds going to the local food bank.",
+  "date": "2025-03-15",
+  "time": "10am – 2pm",
+  "venue": "Community Center",
+  "city": "Rusk",
+  "past": true,
+  "order": 40
+}

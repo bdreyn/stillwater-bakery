@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-cream text-bark font-sans antialiased;
+  }
+
+  ::selection {
+    @apply bg-sage/30 text-forest;
+  }
+}
+
+@layer components {
+  /* Fade-in animation for scroll-triggered elements */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Stagger children */
+  .fade-in-stagger > .fade-in:nth-child(1) { transition-delay: 0ms; }
+  .fade-in-stagger > .fade-in:nth-child(2) { transition-delay: 100ms; }
+  .fade-in-stagger > .fade-in:nth-child(3) { transition-delay: 200ms; }
+  .fade-in-stagger > .fade-in:nth-child(4) { transition-delay: 300ms; }
+  .fade-in-stagger > .fade-in:nth-child(5) { transition-delay: 400ms; }
+  .fade-in-stagger > .fade-in:nth-child(6) { transition-delay: 500ms; }
+
+  /* Toast notification */
+  .toast {
+    @apply fixed bottom-6 right-6 px-6 py-3 rounded-full shadow-lg text-cream text-sm font-medium z-50;
+    @apply transition-all duration-300;
+    animation: toast-in 0.3s ease-out, toast-out 0.3s ease-in 2.7s forwards;
+  }
+  @keyframes toast-in {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes toast-out {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(20px); }
+  }
+}

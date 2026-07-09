@@ -1,0 +1,94 @@
+# -----------------------------------------------------------------------------
+# Sveltia CMS configuration
+# -----------------------------------------------------------------------------
+# Edits made in /admin are committed straight to the `branch` below, which
+# triggers the GitHub Pages rebuild. See the README for the one-time GitHub
+# OAuth setup that lets you log in.
+# -----------------------------------------------------------------------------
+
+backend:
+  name: github
+  repo: bdreyn/stillwater-bakery
+  branch: main
+  # URL of your deployed sveltia-cms-auth OAuth relay (see README → Content editing).
+  # Replace this placeholder before the CMS login will work.
+  base_url: https://REPLACE-WITH-YOUR-AUTH-RELAY.workers.dev
+
+# Uploaded photos are stored in the repo and served from the built site.
+media_folder: "public/images/uploads"
+public_folder: "/stillwater-bakery/images/uploads"
+
+# Commit straight to the branch (simplest for a single editor).
+# Switch to `editorial_workflow` if you'd rather review each change as a PR.
+publish_mode: simple
+
+collections:
+  - name: menu
+    label: Menu
+    label_singular: Menu item
+    description: Dishes shown on the home page and the full Menu page.
+    folder: content/menu
+    create: true
+    delete: true
+    format: json
+    slug: "{{fields.name}}"
+    identifier_field: name
+    summary: "{{fields.name}} — {{fields.category}}"
+    sortable_fields: [order, name, category, price]
+    fields:
+      - { name: name, label: Dish name, widget: string }
+      - { name: description, label: Description, widget: text }
+      - name: category
+        label: Category
+        widget: select
+        options: ["Breads", "Pies & Tarts", "Cookies & Bars", "Seasonal Specials"]
+      - { name: price, label: Price (USD), widget: number, value_type: float, min: 0, required: false }
+      - { name: imageUrl, label: Photo, widget: image, required: false, hint: "Optional. Used on the Menu page cards, not the home-page list." }
+      - { name: order, label: Sort order, widget: number, value_type: int, default: 100, hint: "Lower numbers appear first." }
+
+  - name: events
+    label: Events
+    label_singular: Event
+    description: Markets and pop-ups shown on the home page and Events page.
+    folder: content/events
+    create: true
+    delete: true
+    format: json
+    slug: "{{fields.title}}"
+    identifier_field: title
+    summary: "{{fields.title}} — {{fields.date}}"
+    sortable_fields: [order, date, title]
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: description, label: Description, widget: text, required: false }
+      - { name: date, label: Date, widget: string, hint: "e.g. 2025-06-14" }
+      - { name: time, label: Time, widget: string, required: false, hint: "e.g. 8am – 12pm" }
+      - { name: venue, label: Venue, widget: string, required: false }
+      - { name: city, label: City, widget: string, required: false }
+      - { name: past, label: Past event?, widget: boolean, default: false, hint: "Turn on to move it into the Past Events list." }
+      - { name: order, label: Sort order, widget: number, value_type: int, default: 100 }
+
+  - name: site
+    label: Site
+    description: Gallery photos and contact details.
+    files:
+      - name: gallery
+        label: Gallery
+        file: content/gallery.json
+        fields:
+          - name: items
+            label: Photos
+            label_singular: Photo
+            widget: list
+            fields:
+              - { name: imageUrl, label: Photo, widget: image }
+              - { name: caption, label: Caption, widget: string, required: false }
+      - name: settings
+        label: Contact & Social
+        file: content/settings/site.json
+        fields:
+          - { name: email, label: Email, widget: string }
+          - { name: instagram, label: Instagram handle, widget: string, hint: "e.g. @stillwaterbakery" }
+          - { name: instagramUrl, label: Instagram URL, widget: string }
+          - { name: facebookUrl, label: Facebook URL, widget: string }
+          - { name: location, label: Location, widget: string }
