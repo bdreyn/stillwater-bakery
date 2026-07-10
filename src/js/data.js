@@ -44,3 +44,7 @@ export function menuByCategory(items = MENU) {
 
 export const upcomingEvents = (items = EVENTS) => items.filter((e) => !e.past);
 export const pastEvents = (items = EVENTS) => items.filter((e) => e.past);
+
+// Items shown in the home page's "This Week's Menu" section. Unset `featured`
+// defaults to shown, so existing items don't disappear when the field is added.
+export const featuredMenu = (items = MENU) => items.filter((m) => m.featured !== false);

@@ -44,6 +44,7 @@ collections:
         options: ["Breads", "Pies & Tarts", "Cookies & Bars", "Seasonal Specials"]
       - { name: price, label: Price (USD), widget: number, value_type: float, min: 0, required: false }
       - { name: imageUrl, label: Photo, widget: image, required: false, hint: "Optional. Used on the Menu page cards, not the home-page list." }
+      - { name: featured, label: Show on home page, widget: boolean, default: true, hint: "Turn off to keep this item on the full Menu page but hide it from the home page's This Week's Menu section." }
       - { name: order, label: Sort order, widget: number, value_type: int, default: 100, hint: "Lower numbers appear first." }
 
   - name: events

@@ -1,7 +1,7 @@
 import { renderNav, renderFooter } from '../js/router.js';
 import { $, initFadeIn, initBackToTop, renderAnnouncement } from '../js/utils.js';
 import { icons } from '../js/icons.js';
-import { MENU, SITE, menuByCategory, upcomingEvents } from '../js/data.js';
+import { SITE, menuByCategory, upcomingEvents, featuredMenu } from '../js/data.js';
 
 const BASE = import.meta.env.BASE_URL || '/';
 
@@ -73,7 +73,7 @@ function init() {
         <p class="text-bark-50 mt-3 max-w-lg mx-auto">Everything is made to order from scratch. Here's what we're baking right now.</p>
       </div>
       <div class="grid md:grid-cols-2 gap-x-12 gap-y-10 fade-in-stagger">
-        ${menuByCategory(MENU).map(renderMenuGroup).join('')}
+        ${menuByCategory(featuredMenu()).map(renderMenuGroup).join('')}
       </div>
       <div class="text-center mt-12">
         <a href="${BASE}order.html" class="inline-block bg-sage text-cream font-medium px-8 py-3 rounded-full hover:bg-forest transition-all duration-200 hover:scale-[1.02]">
