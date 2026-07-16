@@ -76,7 +76,7 @@ export function renderFooter() {
           <div>
             <h3 class="text-lg font-semibold text-cream mb-2">
               ${SITE.logo
-                ? `<img src="${SITE.logo}" alt="Stillwater Bakery" class="h-8 w-auto">`
+                ? `<img src="${SITE.logo}" alt="Stillwater Bakery" class="h-12 w-auto">`
                 : 'Stillwater Bakery'}
             </h3>
             <p data-cms="footer.tagline" class="text-cream/60 text-sm leading-relaxed">${SITE.tagline}</p>
