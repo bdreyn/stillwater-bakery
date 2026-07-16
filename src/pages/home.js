@@ -49,20 +49,23 @@ function init() {
     ${renderAnnouncement()}
 
     <!-- Hero -->
-    <section data-cms="home.hero" class="max-w-4xl mx-auto px-4 sm:px-6 py-20 md:py-32 text-center fade-in">
-      <h1 data-cms="home.hero.heading" class="text-4xl md:text-6xl font-light text-bark tracking-tight leading-tight">
-        ${PAGES.home.heroHeading}
-      </h1>
-      <p data-cms="home.hero.subtext" class="text-bark-50 text-lg mt-6 max-w-xl mx-auto leading-relaxed">
-        ${PAGES.home.heroSubtext}
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center mt-10">
-        <a href="${BASE}menu.html" class="bg-sage text-cream font-medium px-8 py-3 rounded-full hover:bg-forest transition-all duration-200 hover:scale-[1.02]">
-          See the Menu
-        </a>
-        <a href="${BASE}order.html" class="border-2 border-forest text-forest font-medium px-8 py-3 rounded-full hover:bg-forest hover:text-cream transition-all duration-200">
-          Place an Order
-        </a>
+    <section data-cms="home.hero" class="relative overflow-hidden fade-in"${PAGES.home.heroImage ? ` style="background-image:url('${PAGES.home.heroImage}');background-size:cover;background-position:center;"` : ''}>
+      ${PAGES.home.heroImage ? '<div class="absolute inset-0 bg-cream/80"></div>' : ''}
+      <div class="relative max-w-4xl mx-auto px-4 sm:px-6 py-20 md:py-32 text-center">
+        <h1 data-cms="home.hero.heading" class="text-4xl md:text-6xl font-light text-bark tracking-tight leading-tight">
+          ${PAGES.home.heroHeading}
+        </h1>
+        <p data-cms="home.hero.subtext" class="text-bark-50 text-lg mt-6 max-w-xl mx-auto leading-relaxed">
+          ${PAGES.home.heroSubtext}
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center mt-10">
+          <a href="${BASE}menu.html" class="bg-sage text-cream font-medium px-8 py-3 rounded-full hover:bg-forest transition-all duration-200 hover:scale-[1.02]">
+            See the Menu
+          </a>
+          <a href="${BASE}order.html" class="border-2 border-forest text-forest font-medium px-8 py-3 rounded-full hover:bg-forest hover:text-cream transition-all duration-200">
+            Place an Order
+          </a>
+        </div>
       </div>
     </section>
 

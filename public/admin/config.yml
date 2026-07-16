@@ -109,6 +109,7 @@ collections:
         label: Home Page
         file: content/pages/home.json
         fields:
+          - { name: heroImage, label: Hero background image, widget: image, required: false, hint: "Optional. Displayed full-width behind the hero heading, cropped to cover the space, with a soft overlay so the text stays readable." }
           - { name: heroHeading, label: Hero heading, widget: string, hint: "HTML is allowed, e.g. <br> for a manual line break." }
           - { name: heroSubtext, label: Hero subtext, widget: text }
           - { name: menuHeading, label: "\"This Week's Menu\" section heading", widget: string }
