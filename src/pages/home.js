@@ -2,6 +2,7 @@ import { renderNav, renderFooter } from '../js/router.js';
 import { $, initFadeIn, initBackToTop, renderAnnouncement } from '../js/utils.js';
 import { icons } from '../js/icons.js';
 import { SITE, PAGES, menuByCategory, upcomingEvents, featuredMenu } from '../js/data.js';
+import { fetchInstagramFeed } from '../js/instagram.js';
 
 const BASE = import.meta.env.BASE_URL || '/';
 
@@ -120,7 +121,7 @@ function init() {
     <!-- Instagram Teaser -->
     <section class="max-w-6xl mx-auto px-4 sm:px-6 py-16 text-center fade-in">
       <h2 class="text-2xl font-light text-bark mb-8">Follow Along <span class="text-sage">${SITE.instagram}</span></h2>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+      <div id="instagram-feed" class="grid grid-cols-2 md:grid-cols-4 gap-3">
         ${Array.from({ length: 4 }, () => '<div class="aspect-square bg-linen rounded-xl"></div>').join('')}
       </div>
       <a href="${SITE.instagramUrl}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sage font-medium text-sm mt-6 hover:text-forest transition-colors">
@@ -131,6 +132,23 @@ function init() {
 
   initFadeIn();
   initBackToTop();
+  loadInstagramFeed();
+}
+
+// Progressively swaps the placeholder tiles for real photos. Leaves the
+// placeholders in place if Instagram isn't configured or the fetch fails.
+async function loadInstagramFeed() {
+  const container = $('#instagram-feed');
+  if (!container) return;
+
+  const items = await fetchInstagramFeed(4);
+  if (!items.length) return;
+
+  container.innerHTML = items.map(item => `
+    <a href="${item.permalink}" target="_blank" rel="noopener" class="group relative aspect-square overflow-hidden rounded-xl bg-linen block">
+      <img src="${item.mediaUrl}" alt="${(item.caption || 'Instagram photo').slice(0, 100)}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+    </a>
+  `).join('');
 }
 
 document.addEventListener('DOMContentLoaded', init);
