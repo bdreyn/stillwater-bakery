@@ -19,10 +19,10 @@ export function renderNav(currentPage) {
 
   nav.innerHTML = `
     <div class="sticky top-0 z-50 bg-cream/90 backdrop-blur-md border-b border-linen">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-24">
         <a href="${BASE}" class="flex items-center text-xl font-semibold text-bark tracking-tight" data-cms="site.logo">
           ${SITE.logo
-            ? `<img src="${SITE.logo}" alt="Stillwater Bakery" class="h-12 w-auto">`
+            ? `<img src="${SITE.logo}" alt="Stillwater Bakery" class="h-20 w-auto">`
             : 'Stillwater Bakery'}
         </a>
 
