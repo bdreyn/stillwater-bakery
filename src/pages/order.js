@@ -1,6 +1,7 @@
 import { renderNav, renderFooter } from '../js/router.js';
 import { $, initFadeIn, initBackToTop, toast } from '../js/utils.js';
 import { submitOrder } from '../js/api.js';
+import { PAGES } from '../js/data.js';
 
 function init() {
   renderNav('How to Order');
@@ -12,8 +13,8 @@ function init() {
   main.innerHTML = `
     <section class="max-w-4xl mx-auto px-4 sm:px-6 py-12 md:py-16">
       <div class="text-center mb-12 fade-in">
-        <h1 data-cms="order.hero.heading" class="text-3xl md:text-5xl font-light text-bark">How to Order</h1>
-        <p data-cms="order.intro" class="text-bark-50 mt-3">Four simple steps from craving to kitchen table.</p>
+        <h1 data-cms="order.hero.heading" class="text-3xl md:text-5xl font-light text-bark">${PAGES.order.heroHeading}</h1>
+        <p data-cms="order.intro" class="text-bark-50 mt-3">${PAGES.order.intro}</p>
       </div>
 
       <!-- Steps Timeline -->
@@ -22,16 +23,11 @@ function init() {
           <!-- Vertical line -->
           <div class="absolute left-[18px] top-2 bottom-2 w-[2px] bg-sage/30"></div>
 
-          ${[
-            { num: '1', title: 'Browse Our Menu', desc: 'Pick your favorites from our breads, pies, cookies, and seasonal specials.' },
-            { num: '2', title: 'Submit Your Order', desc: 'Fill out the form below with what you’d like and when you need it.' },
-            { num: '3', title: 'Receive Confirmation', desc: 'We’ll email you within 24 hours to confirm your order and total.' },
-            { num: '4', title: 'Pick Up or Get Delivery', desc: 'Collect your freshly baked goodies or we’ll arrange local delivery.' },
-          ].map((step, i) => `
+          ${PAGES.order.steps.map((step, i) => `
             <div class="relative mb-8 last:mb-0">
-              <div class="absolute -left-12 w-9 h-9 bg-sage text-cream rounded-full flex items-center justify-center font-semibold text-sm">${step.num}</div>
+              <div class="absolute -left-12 w-9 h-9 bg-sage text-cream rounded-full flex items-center justify-center font-semibold text-sm">${i + 1}</div>
               <h3 data-cms="order.steps.${i}.title" class="font-semibold text-forest">${step.title}</h3>
-              <p data-cms="order.steps.${i}.description" class="text-bark-50 text-sm mt-1">${step.desc}</p>
+              <p data-cms="order.steps.${i}.description" class="text-bark-50 text-sm mt-1">${step.description}</p>
             </div>
           `).join('')}
         </div>
@@ -104,9 +100,7 @@ function init() {
 
         <!-- Notice -->
         <div data-cms="order.notice" class="mt-6 bg-cream border border-linen rounded-xl p-4 text-bark-50 text-sm fade-in">
-          All orders require <strong class="text-bark">48–72 hours notice</strong>.
-          We'll confirm availability and your total by email, then collect
-          payment (cash or Venmo) at pickup or delivery.
+          ${PAGES.order.notice}
         </div>
       </div>
     </section>

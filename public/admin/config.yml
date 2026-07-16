@@ -88,8 +88,82 @@ collections:
         label: Contact & Social
         file: content/settings/site.json
         fields:
+          - { name: logo, label: Logo, widget: image, required: false, hint: "Replaces the text site name in the header and footer if set. Leave empty to keep the text name." }
+          - { name: tagline, label: Footer tagline, widget: string }
           - { name: email, label: Email, widget: string }
           - { name: instagram, label: Instagram handle, widget: string, hint: "e.g. @stillwaterbakery" }
           - { name: instagramUrl, label: Instagram URL, widget: string }
           - { name: facebookUrl, label: Facebook URL, widget: string }
           - { name: location, label: Location, widget: string }
+      - name: announcement
+        label: Announcement Banner
+        file: content/settings/announcement.json
+        fields:
+          - { name: text, label: Banner text, widget: string, hint: "Shown in a bar at the top of the home page. Visitors can dismiss it for their session." }
+
+  - name: pages
+    label: Page Content
+    description: Headings and copy blocks shown on each page.
+    files:
+      - name: home
+        label: Home Page
+        file: content/pages/home.json
+        fields:
+          - { name: heroHeading, label: Hero heading, widget: string, hint: "HTML is allowed, e.g. <br> for a manual line break." }
+          - { name: heroSubtext, label: Hero subtext, widget: text }
+          - { name: menuHeading, label: "\"This Week's Menu\" section heading", widget: string }
+          - { name: menuIntro, label: "\"This Week's Menu\" section intro", widget: text }
+          - { name: aboutText, label: About snippet paragraph, widget: text }
+          - { name: eventsHeading, label: "\"Find Us Next At\" section heading", widget: string }
+      - name: about
+        label: About Page
+        file: content/pages/about.json
+        fields:
+          - { name: heroHeading, label: Hero heading, widget: string, hint: "HTML is allowed, e.g. <br> for a manual line break." }
+          - { name: storyP1, label: Story — paragraph 1, widget: text }
+          - { name: storyP2, label: Story — paragraph 2, widget: text }
+          - { name: storyP3, label: Story — paragraph 3, widget: text }
+          - name: values
+            label: Values cards
+            widget: list
+            hint: "Exactly 3 cards are shown, each with its own icon."
+            fields:
+              - { name: title, label: Title, widget: string }
+              - { name: description, label: Description, widget: text }
+      - name: order
+        label: How to Order Page
+        file: content/pages/order.json
+        fields:
+          - { name: heroHeading, label: Hero heading, widget: string }
+          - { name: intro, label: Intro text, widget: text }
+          - name: steps
+            label: Steps
+            widget: list
+            hint: "The numbered circle is generated automatically from each step's position."
+            fields:
+              - { name: title, label: Title, widget: string }
+              - { name: description, label: Description, widget: text }
+          - { name: notice, label: Lead-time notice, widget: text, hint: "HTML is allowed, e.g. <strong> for bold text." }
+      - name: menu
+        label: Menu Page
+        file: content/pages/menu.json
+        fields:
+          - { name: heroHeading, label: Hero heading, widget: string }
+          - { name: heroSubtext, label: Hero subtext, widget: text }
+      - name: events
+        label: Events Page
+        file: content/pages/events.json
+        fields:
+          - { name: heroHeading, label: Hero heading, widget: string }
+          - { name: heroSubtext, label: Hero subtext, widget: text }
+      - name: galleryPage
+        label: Gallery Page
+        file: content/pages/gallery.json
+        fields:
+          - { name: heroHeading, label: Hero heading, widget: string }
+      - name: contact
+        label: Contact Page
+        file: content/pages/contact.json
+        fields:
+          - { name: heroHeading, label: Hero heading, widget: string }
+          - { name: intro, label: Intro text, widget: text }

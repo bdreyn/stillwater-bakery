@@ -1,7 +1,7 @@
 import { renderNav, renderFooter } from '../js/router.js';
 import { $, initFadeIn, initBackToTop, renderAnnouncement } from '../js/utils.js';
 import { icons } from '../js/icons.js';
-import { SITE, menuByCategory, upcomingEvents, featuredMenu } from '../js/data.js';
+import { SITE, PAGES, menuByCategory, upcomingEvents, featuredMenu } from '../js/data.js';
 
 const BASE = import.meta.env.BASE_URL || '/';
 
@@ -51,10 +51,10 @@ function init() {
     <!-- Hero -->
     <section data-cms="home.hero" class="max-w-4xl mx-auto px-4 sm:px-6 py-20 md:py-32 text-center fade-in">
       <h1 data-cms="home.hero.heading" class="text-4xl md:text-6xl font-light text-bark tracking-tight leading-tight">
-        Baked with love.<br class="hidden sm:block"> Delivered with care.
+        ${PAGES.home.heroHeading}
       </h1>
       <p data-cms="home.hero.subtext" class="text-bark-50 text-lg mt-6 max-w-xl mx-auto leading-relaxed">
-        Small-batch artisan baked goods made from scratch in the heart of Texas.
+        ${PAGES.home.heroSubtext}
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center mt-10">
         <a href="${BASE}menu.html" class="bg-sage text-cream font-medium px-8 py-3 rounded-full hover:bg-forest transition-all duration-200 hover:scale-[1.02]">
@@ -69,8 +69,8 @@ function init() {
     <!-- Current Menu (text only) -->
     <section class="max-w-5xl mx-auto px-4 sm:px-6 py-16 fade-in">
       <div class="text-center mb-12">
-        <h2 data-cms="home.menu.heading" class="text-2xl md:text-3xl font-light text-bark">This Week's Menu</h2>
-        <p data-cms="home.menu.intro" class="text-bark-50 mt-3 max-w-lg mx-auto">Everything is made to order from scratch. Here's what we're baking right now.</p>
+        <h2 data-cms="home.menu.heading" class="text-2xl md:text-3xl font-light text-bark">${PAGES.home.menuHeading}</h2>
+        <p data-cms="home.menu.intro" class="text-bark-50 mt-3 max-w-lg mx-auto">${PAGES.home.menuIntro}</p>
       </div>
       <div class="grid md:grid-cols-2 gap-x-12 gap-y-10 fade-in-stagger">
         ${menuByCategory(featuredMenu()).map(renderMenuGroup).join('')}
@@ -88,10 +88,7 @@ function init() {
         <div class="aspect-square bg-linen rounded-2xl"></div>
         <div class="border-l-4 border-sage pl-6">
           <p data-cms="home.about.text" class="text-bark-50 leading-relaxed">
-            Every loaf, every tart, every cookie starts with the best local ingredients
-            I can find and more love than I can measure. Stillwater Bakery is my dream
-            of sharing real, honest baked goods with my East Texas neighbors — one small
-            batch at a time.
+            ${PAGES.home.aboutText}
           </p>
           <a href="${BASE}about.html" class="inline-block mt-4 text-forest font-medium text-sm hover:underline">
             Meet the Baker ${icons.arrowRight}
@@ -103,7 +100,7 @@ function init() {
     <!-- Upcoming Events -->
     <section class="bg-linen/50 fade-in">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16">
-        <h2 data-cms="home.events.heading" class="text-2xl md:text-3xl font-light text-bark mb-8">Find Us Next At...</h2>
+        <h2 data-cms="home.events.heading" class="text-2xl md:text-3xl font-light text-bark mb-8">${PAGES.home.eventsHeading}</h2>
         <div id="upcoming-events">
           ${upcoming.length
             ? `<div class="grid md:grid-cols-3 gap-4 fade-in-stagger">${upcoming.map(renderEventPreview).join('')}</div>`

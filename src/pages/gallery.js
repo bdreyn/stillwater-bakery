@@ -1,7 +1,7 @@
 import { renderNav, renderFooter } from '../js/router.js';
 import { $, initFadeIn, initBackToTop } from '../js/utils.js';
 import { icons } from '../js/icons.js';
-import { GALLERY, SITE } from '../js/data.js';
+import { GALLERY, SITE, PAGES } from '../js/data.js';
 
 const ASPECTS = ['aspect-square', 'aspect-[3/4]', 'aspect-[4/3]', 'aspect-square', 'aspect-[4/3]', 'aspect-[3/4]'];
 
@@ -36,7 +36,7 @@ function init() {
   main.innerHTML = `
     <section class="max-w-6xl mx-auto px-4 sm:px-6 py-12 md:py-16">
       <div class="text-center mb-10 fade-in">
-        <h1 data-cms="gallery.hero.heading" class="text-3xl md:text-5xl font-light text-bark">From Our Kitchen to Yours</h1>
+        <h1 data-cms="gallery.hero.heading" class="text-3xl md:text-5xl font-light text-bark">${PAGES.gallery.heroHeading}</h1>
       </div>
 
       <div id="gallery-grid" class="grid grid-cols-2 md:grid-cols-3 gap-3 fade-in-stagger">

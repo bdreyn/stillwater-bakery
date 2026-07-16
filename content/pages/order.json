@@ -1,0 +1,11 @@
+{
+  "heroHeading": "How to Order",
+  "intro": "Four simple steps from craving to kitchen table.",
+  "steps": [
+    { "title": "Browse Our Menu", "description": "Pick your favorites from our breads, pies, cookies, and seasonal specials." },
+    { "title": "Submit Your Order", "description": "Fill out the form below with what you’d like and when you need it." },
+    { "title": "Receive Confirmation", "description": "We’ll email you within 24 hours to confirm your order and total." },
+    { "title": "Pick Up or Get Delivery", "description": "Collect your freshly baked goodies or we’ll arrange local delivery." }
+  ],
+  "notice": "All orders require <strong class=\"text-bark\">48–72 hours notice</strong>. We'll confirm availability and your total by email, then collect payment (cash or Venmo) at pickup or delivery."
+}

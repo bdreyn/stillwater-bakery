@@ -20,7 +20,11 @@ export function renderNav(currentPage) {
   nav.innerHTML = `
     <div class="sticky top-0 z-50 bg-cream/90 backdrop-blur-md border-b border-linen">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
-        <a href="${BASE}" class="text-xl font-semibold text-bark tracking-tight">Stillwater Bakery</a>
+        <a href="${BASE}" class="flex items-center text-xl font-semibold text-bark tracking-tight" data-cms="site.logo">
+          ${SITE.logo
+            ? `<img src="${SITE.logo}" alt="Stillwater Bakery" class="h-9 w-auto">`
+            : 'Stillwater Bakery'}
+        </a>
 
         <!-- Desktop nav -->
         <div class="hidden md:flex items-center gap-6">
@@ -70,8 +74,12 @@ export function renderFooter() {
         <div class="grid md:grid-cols-3 gap-8">
           <!-- Brand -->
           <div>
-            <h3 class="text-lg font-semibold text-cream mb-2">Stillwater Bakery</h3>
-            <p data-cms="footer.tagline" class="text-cream/60 text-sm leading-relaxed">Small-batch artisan baked goods made from scratch in the heart of Texas.</p>
+            <h3 class="text-lg font-semibold text-cream mb-2">
+              ${SITE.logo
+                ? `<img src="${SITE.logo}" alt="Stillwater Bakery" class="h-8 w-auto">`
+                : 'Stillwater Bakery'}
+            </h3>
+            <p data-cms="footer.tagline" class="text-cream/60 text-sm leading-relaxed">${SITE.tagline}</p>
           </div>
 
           <!-- Links -->

@@ -15,6 +15,15 @@
 
 import galleryData from '../../content/gallery.json';
 import siteData from '../../content/settings/site.json';
+import announcementData from '../../content/settings/announcement.json';
+
+import homePage from '../../content/pages/home.json';
+import aboutPage from '../../content/pages/about.json';
+import orderPage from '../../content/pages/order.json';
+import menuPage from '../../content/pages/menu.json';
+import eventsPage from '../../content/pages/events.json';
+import galleryPage from '../../content/pages/gallery.json';
+import contactPage from '../../content/pages/contact.json';
 
 // Vite bundles every matching JSON file; `eager` inlines them at build time.
 const menuFiles = import.meta.glob('../../content/menu/*.json', { eager: true, import: 'default' });
@@ -26,6 +35,17 @@ export const MENU = Object.values(menuFiles).sort(byOrder);
 export const EVENTS = Object.values(eventFiles).sort(byOrder);
 export const GALLERY = galleryData.items || [];
 export const SITE = siteData;
+export const ANNOUNCEMENT = announcementData;
+
+export const PAGES = {
+  home: homePage,
+  about: aboutPage,
+  order: orderPage,
+  menu: menuPage,
+  events: eventsPage,
+  gallery: galleryPage,
+  contact: contactPage,
+};
 
 // ---------------------------------------------------------------------------
 // Helpers
