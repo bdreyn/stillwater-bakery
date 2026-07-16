@@ -31,8 +31,8 @@ function init() {
   main.innerHTML = `
     <section class="max-w-4xl mx-auto px-4 sm:px-6 py-12 md:py-16">
       <div class="text-center mb-10 fade-in">
-        <h1 class="text-3xl md:text-5xl font-light text-bark">Find Stillwater Bakery Near You</h1>
-        <p class="text-bark-50 mt-3 max-w-lg mx-auto">We pop up at local markets, farms, and community events across Texas. Check back often — we're always somewhere new.</p>
+        <h1 data-cms="events.hero.heading" class="text-3xl md:text-5xl font-light text-bark">Find Stillwater Bakery Near You</h1>
+        <p data-cms="events.hero.subtext" class="text-bark-50 mt-3 max-w-lg mx-auto">We pop up at local markets, farms, and community events across Texas. Check back often — we're always somewhere new.</p>
       </div>
 
       ${upcoming.length ? `

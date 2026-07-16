@@ -71,7 +71,7 @@ export function renderFooter() {
           <!-- Brand -->
           <div>
             <h3 class="text-lg font-semibold text-cream mb-2">Stillwater Bakery</h3>
-            <p class="text-cream/60 text-sm leading-relaxed">Small-batch artisan baked goods made from scratch in the heart of Texas.</p>
+            <p data-cms="footer.tagline" class="text-cream/60 text-sm leading-relaxed">Small-batch artisan baked goods made from scratch in the heart of Texas.</p>
           </div>
 
           <!-- Links -->

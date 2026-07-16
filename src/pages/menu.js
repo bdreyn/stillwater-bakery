@@ -64,8 +64,8 @@ function init() {
   main.innerHTML = `
     <section class="max-w-6xl mx-auto px-4 sm:px-6 py-12 md:py-16">
       <div class="text-center mb-10 fade-in">
-        <h1 class="text-3xl md:text-5xl font-light text-bark">Our Menu</h1>
-        <p class="text-bark-50 mt-3 max-w-lg mx-auto">Everything made to order, from scratch, with seasonal ingredients.</p>
+        <h1 data-cms="menu.hero.heading" class="text-3xl md:text-5xl font-light text-bark">Our Menu</h1>
+        <p data-cms="menu.hero.subtext" class="text-bark-50 mt-3 max-w-lg mx-auto">Everything made to order, from scratch, with seasonal ingredients.</p>
       </div>
 
       <div id="filter-bar" class="flex flex-wrap justify-center gap-2 mb-8 fade-in"></div>

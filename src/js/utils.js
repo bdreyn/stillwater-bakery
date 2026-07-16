@@ -61,7 +61,7 @@ export function renderAnnouncement() {
   if (sessionStorage.getItem('sw_announce_dismissed')) return '';
   return `
     <div id="announce" class="bg-sage text-cream text-center text-sm py-2.5 px-4 relative">
-      <span>🌸 Now taking orders for Spring — slots are limited!</span>
+      <span data-cms="announcement.text">🌸 Now taking orders for Spring — slots are limited!</span>
       <button onclick="document.getElementById('announce').remove(); sessionStorage.setItem('sw_announce_dismissed','1')"
         class="absolute right-4 top-1/2 -translate-y-1/2 text-cream/70 hover:text-cream text-lg leading-none" aria-label="Dismiss">&times;</button>
     </div>
