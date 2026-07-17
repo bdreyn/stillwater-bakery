@@ -88,7 +88,8 @@ collections:
         label: Contact & Social
         file: content/settings/site.json
         fields:
-          - { name: logo, label: Logo, widget: image, required: false, hint: "Replaces the text site name in the header and footer if set. Leave empty to keep the text name." }
+          - { name: logo, label: Logo, widget: image, required: false, hint: "Replaces the text site name in the header (and the footer, unless a separate footer logo is set below). Leave empty to keep the text name." }
+          - { name: footerLogo, label: Footer logo (optional), widget: image, required: false, hint: "Overrides the logo shown in the footer only. Leave empty to reuse the header logo above." }
           - { name: tagline, label: Footer tagline, widget: string }
           - { name: email, label: Email, widget: string }
           - { name: instagram, label: Instagram handle, widget: string, hint: "e.g. @stillwaterbakery" }

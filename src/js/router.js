@@ -68,26 +68,20 @@ export function renderFooter() {
   const footer = document.getElementById('footer');
   if (!footer) return;
 
+  const footerLogo = SITE.footerLogo || SITE.logo;
+
   footer.innerHTML = `
     <div class="bg-bark text-cream/90">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
-        <div class="grid md:grid-cols-3 gap-8">
+        <div class="grid md:grid-cols-2 gap-8">
           <!-- Brand -->
           <div>
             <h3 class="text-lg font-semibold text-cream mb-2">
-              ${SITE.logo
-                ? `<img src="${SITE.logo}" alt="Stillwater Bakery" class="h-24 w-auto">`
+              ${footerLogo
+                ? `<img src="${footerLogo}" alt="Stillwater Bakery" class="h-24 w-auto">`
                 : 'Stillwater Bakery'}
             </h3>
             <p data-cms="footer.tagline" class="text-cream/60 text-sm leading-relaxed">${SITE.tagline}</p>
-          </div>
-
-          <!-- Links -->
-          <div>
-            <h4 class="text-sm font-medium text-cream mb-3">Pages</h4>
-            <div class="space-y-2">
-              ${NAV_LINKS.map(l => `<a href="${l.href}" class="block text-sm text-cream/60 hover:text-sage transition-colors">${l.label}</a>`).join('')}
-            </div>
           </div>
 
           <!-- Social -->
