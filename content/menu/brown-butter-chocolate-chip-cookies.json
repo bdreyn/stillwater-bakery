@@ -1,9 +1,9 @@
 {
-  "name": "Brown Butter Chocolate Chip Cookies",
-  "description": "Thick, bakery-style cookies made with browned butter, two kinds of chocolate, and a sprinkle of flaky sea salt. Sold by the dozen.",
-  "category": "Cookies & Bars",
-  "price": 18,
-  "imageUrl": "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=600",
-  "featured": false,
+  "name": "Oatmeal Cream Pie",
+  "description": "Oatmeal cookies flavored with brown sugar and cinnamon. Sandwiched with a smooth, vanilla buttercream filling.",
+  "category": "Seasonal Specials",
+  "price": 5,
+  "imageUrl": "/stillwater-bakery/images/uploads/IMG_7532.JPEG",
+  "featured": true,
   "order": 60
 }
