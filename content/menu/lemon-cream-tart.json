@@ -1,8 +1,8 @@
 {
-  "name": "Lemon Cream Tart",
-  "description": "Bright, silky lemon curd in a crisp buttered pastry shell, topped with fresh whipped cream.",
-  "category": "Pies & Tarts",
-  "price": 32,
-  "imageUrl": "https://images.unsplash.com/photo-1519915028121-7d3463d5b1c4?w=600",
+  "name": "Gluten-Free Brookies",
+  "description": "Our fudgey brownie meets a chocolate chip cookie. Completely gluten free. Comes in a pack of 4.",
+  "category": "Seasonal Specials",
+  "price": 20,
+  "imageUrl": "/stillwater-bakery/images/uploads/IMG_7402.JPEG",
   "order": 50
 }
