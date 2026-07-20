@@ -1,8 +1,8 @@
 {
-  "name": "Salted Caramel Blondies",
-  "description": "Dense, fudgy blondies swirled with house-made salted caramel. Cut into generous squares. Box of 9.",
-  "category": "Cookies & Bars",
-  "price": 22,
-  "imageUrl": "https://images.unsplash.com/photo-1515037893149-de7f840978e2?w=600",
+  "name": "Peanut Butter Brownie",
+  "description": "Rich chocolate brownies swirled with creamy peanut butter.",
+  "category": "Seasonal Specials",
+  "price": 4,
+  "imageUrl": "/stillwater-bakery/images/uploads/IMG_7745.JPEG",
   "order": 80
 }
