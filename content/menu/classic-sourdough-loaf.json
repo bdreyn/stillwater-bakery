@@ -1,8 +1,8 @@
 {
-  "name": "Classic Sourdough Loaf",
-  "description": "A tangy, slow-fermented sourdough with a crispy crust and chewy open crumb. Made with local stone-ground flour.",
-  "category": "Breads",
-  "price": 12,
-  "imageUrl": "https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=600",
-  "order": 10
+  "name": "Oreo Cinnamon Roll",
+  "description": "Our signature, made from scratch, cinnamons roll with Oreo cookies. Smothered with vanilla cream cheese frosting and crushed Oreos.",
+  "category": "Seasonal Specials",
+  "price": 5,
+  "imageUrl": "/stillwater-bakery/images/uploads/IMG_7918.jpeg",
+  "order": 22
 }
