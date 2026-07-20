@@ -1,8 +1,8 @@
 {
-  "name": "Honey Wheat Sandwich Loaf",
-  "description": "Soft, lightly sweetened whole wheat bread perfect for everyday sandwiches and toast.",
-  "category": "Breads",
-  "price": 10,
+  "name": "Sugar-Free Cinnamon Roll",
+  "description": "Our classic, soft cinnamon without the added sugar. Comes in a pack of 4.",
+  "category": "Seasonal Specials",
+  "price": 20,
   "imageUrl": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600",
   "order": 20
 }
