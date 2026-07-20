@@ -1,8 +1,8 @@
 {
-  "name": "Lemon Lavender Shortbread",
-  "description": "Delicate buttery shortbread infused with Texas lavender and bright lemon zest. Box of 12.",
-  "category": "Cookies & Bars",
-  "price": 16,
-  "imageUrl": "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600",
+  "name": "Lemon Bar",
+  "description": "Buttery shortbread crust layered with smooth, tangy lemon filling and powdered sugar sprinkled on top.",
+  "category": "Seasonal Specials",
+  "price": 4,
+  "imageUrl": "/stillwater-bakery/images/uploads/IMG_7589.JPEG",
   "order": 70
 }
