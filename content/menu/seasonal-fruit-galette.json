@@ -1,8 +1,8 @@
 {
   "name": "Smore's Scone",
-  "description": "A buttery scone filled with graham crackers, chocolate chips, and mini marshmallows, drizzled with marshmallow fluff.",
+  "description": "A buttery scone filled with graham crackers, chocolate chips, and mini marshmallows, drizzled with marshmallow fluff. Comes in a pack of 4.",
   "category": "Seasonal Specials",
-  "price": 4,
+  "price": 16,
   "imageUrl": "/stillwater-bakery/images/uploads/IMG_7199.JPEG",
   "order": 40
 }
