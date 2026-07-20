@@ -1,8 +1,8 @@
 {
-  "name": "Strawberry Basil Scones",
-  "description": "Flaky, tender scones loaded with fresh Texas strawberries and a hint of sweet basil. Box of 6.",
+  "name": "Peach Cobbler Cookie",
+  "description": "A soft, buttery cookie loaded with peaches, cinnamon, and brown sugar. Comes in a pack of 6.",
   "category": "Seasonal Specials",
   "price": 20,
-  "imageUrl": "https://images.unsplash.com/photo-1587668178277-295251f900ce?w=600",
+  "imageUrl": "",
   "order": 90
 }
