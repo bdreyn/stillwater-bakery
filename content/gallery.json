@@ -5,24 +5,32 @@
       "caption": "Unfrosted CInnamon Rolls"
     },
     {
-      "imageUrl": "/stillwater-bakery/images/uploads/IMG_5841.jpg",
-      "caption": "Vanilla Almond Scones"
+      "imageUrl": "/stillwater-bakery/images/uploads/IMG_7402.JPEG",
+      "caption": "Gluten Free Brookies"
     },
     {
       "imageUrl": "/stillwater-bakery/images/uploads/IMG_7436.JPEG",
       "caption": "Sugar-Free Cinnamon Rolls"
     },
     {
-      "imageUrl": "/stillwater-bakery/images/uploads/IMG_7402.JPEG",
-      "caption": "Gluten Free Brookies"
-    },
-    {
       "imageUrl": "/stillwater-bakery/images/uploads/IMG_6739.JPG",
       "caption": "Strawberry Shortcake Cupcakes"
     },
     {
+      "imageUrl": "/stillwater-bakery/images/uploads/IMG_7532.JPEG",
+      "caption": "Oatmeal Cream Pies"
+    },
+    {
+      "imageUrl": "/stillwater-bakery/images/uploads/IMG_5841.jpg",
+      "caption": "Vanilla Almond Scones"
+    },
+    {
       "imageUrl": "/stillwater-bakery/images/uploads/91062093-B7BC-48BF-9781-9357F0148C55.JPG",
       "caption": "Lemon Blueberry Muffin"
+    },
+    {
+      "imageUrl": "/stillwater-bakery/images/uploads/image1 (1).jpeg",
+      "caption": "Gluten and Dairy Free Strawberry Cake"
     },
     {
       "imageUrl": "/stillwater-bakery/images/uploads/BAC22D30-000A-4782-88C8-11A39B21DA8E.JPG",
@@ -33,44 +41,40 @@
       "caption": "Peanut Butter Bars"
     },
     {
-      "imageUrl": "/stillwater-bakery/images/uploads/IMG_3435.JPEG",
-      "caption": "Brown Butter Pumpkin Cheesecake Cookies"
-    },
-    {
       "imageUrl": "/stillwater-bakery/images/uploads/IMG_3375.JPEG",
       "caption": "Apple Cinnamon Crumble Muffin"
+    },
+    {
+      "imageUrl": "/stillwater-bakery/images/uploads/IMG_3435.JPEG",
+      "caption": "Brown Butter Pumpkin Cheesecake Cookies"
     },
     {
       "imageUrl": "/stillwater-bakery/images/uploads/IMG_4854.JPEG",
       "caption": "Red Velvet Brownies"
     },
     {
-      "imageUrl": "/stillwater-bakery/images/uploads/IMG_4891.JPEG",
-      "caption": "White Chocolate Rasberry Muffins"
-    },
-    {
       "imageUrl": "/stillwater-bakery/images/uploads/IMG_7589.JPEG",
       "caption": "Lemon Bars"
+    },
+    {
+      "imageUrl": "/stillwater-bakery/images/uploads/IMG_4891.JPEG",
+      "caption": "White Chocolate Rasberry Muffins"
     },
     {
       "imageUrl": "/stillwater-bakery/images/uploads/IMG_7199.JPEG",
       "caption": "Smore Scones"
     },
     {
-      "imageUrl": "/stillwater-bakery/images/uploads/IMG_7932.jpeg",
-      "caption": "Jalapeno Dill Pickle Scone"
-    },
-    {
       "imageUrl": "/stillwater-bakery/images/uploads/IMG_7518.JPEG",
       "caption": "Peach Cobbler Cookies"
     },
     {
-      "imageUrl": "/stillwater-bakery/images/uploads/IMG_7532.JPEG",
-      "caption": "Oatmeal Cream Pies"
-    },
-    {
       "imageUrl": "/stillwater-bakery/images/uploads/IMG_7918.jpeg",
       "caption": "Oreo Cinnamon Roll"
+    },
+    {
+      "imageUrl": "/stillwater-bakery/images/uploads/IMG_7932.jpeg",
+      "caption": "Jalapeno Dill Pickle Scone"
     },
     {
       "imageUrl": "/stillwater-bakery/images/uploads/IMG_7745.JPEG",
@@ -83,6 +87,10 @@
     {
       "imageUrl": "/stillwater-bakery/images/uploads/IMG_5721.JPEG",
       "caption": "Frosted CInnamon Rolls"
+    },
+    {
+      "imageUrl": "/stillwater-bakery/images/uploads/image0.png",
+      "caption": "Biscoff Cookie Drizzle Cake"
     }
   ]
 }
