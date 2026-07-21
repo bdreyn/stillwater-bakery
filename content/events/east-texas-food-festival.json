@@ -1,10 +1,10 @@
 {
-  "title": "East Texas Food Festival",
-  "description": "Celebrating the best local food in East Texas — come find our booth!",
-  "date": "2025-07-04",
-  "time": "10am – 6pm",
-  "venue": "Civic Center",
-  "city": "Jacksonville",
+  "title": "San Angelo Trade Days",
+  "description": "Come find our booth and join us for a fun, family-friendly morning at San Angelo Trade Days, located right next to the Farmers Market!",
+  "date": "2026-08-08",
+  "time": "8am-1pm",
+  "venue": "El Paseo De Santa Angela Park 34 W Ave D",
+  "city": "San Angelo",
   "past": false,
   "order": 30
 }
