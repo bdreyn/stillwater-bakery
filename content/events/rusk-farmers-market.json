@@ -1,10 +1,10 @@
 {
-  "title": "Rusk Farmers Market",
-  "description": "Join us for fresh bread, scones, and seasonal pies at our hometown market.",
-  "date": "2025-06-14",
-  "time": "8am – 12pm",
-  "venue": "Downtown Square",
-  "city": "Rusk",
+  "title": "Pawsapalooza",
+  "description": "Come grab both you and your furry best friend a treat at our stand at this years Pawsapalooza!",
+  "date": "2026-09-26",
+  "time": "9am – 3pm",
+  "venue": "San Angelo Dog Park",
+  "city": "San Angelo",
   "past": false,
   "order": 10
 }
