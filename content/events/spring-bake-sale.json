@@ -5,6 +5,6 @@
   "time": "9am – 8:30pm",
   "venue": "Concho River",
   "city": "San Angelo",
-  "past": true,
+  "past": false,
   "order": 40
 }
