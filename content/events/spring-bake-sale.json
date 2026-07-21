@@ -1,10 +1,10 @@
 {
-  "title": "Spring Bake Sale",
-  "description": "Our annual spring fundraiser with all proceeds going to the local food bank.",
-  "date": "2025-03-15",
-  "time": "10am – 2pm",
-  "venue": "Community Center",
-  "city": "Rusk",
+  "title": "San Angelo River Fest",
+  "description": "Celebrate along the concho river with so many great vendors, and our wonderful community! There will be a kid zone, river stage performances, and all day attractions!",
+  "date": "2026-09-19",
+  "time": "9am – 8:30pm",
+  "venue": "Concho River",
+  "city": "San Angelo",
   "past": true,
   "order": 40
 }
