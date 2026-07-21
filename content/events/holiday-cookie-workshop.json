@@ -1,10 +1,10 @@
 {
-  "title": "Holiday Cookie Workshop",
-  "description": "Hands-on cookie decorating for all ages.",
-  "date": "2024-12-14",
-  "time": "2pm – 5pm",
-  "venue": "Stillwater Kitchen",
-  "city": "Rusk",
-  "past": true,
+  "title": "Market at the Bosque",
+  "description": "Come see us at the Bosque with so many other wonderful vendors!",
+  "date": "2026-08-29",
+  "time": "9am--3pm",
+  "venue": "330 S Irving St.",
+  "city": "San Angelo",
+  "past": false,
   "order": 50
 }
