@@ -47,7 +47,11 @@ function init() {
     <section class="max-w-3xl mx-auto px-4 sm:px-6 py-16 fade-in">
       <div class="grid md:grid-cols-5 gap-10 items-start">
         <div class="md:col-span-2">
-          <div class="aspect-[3/4] bg-linen rounded-2xl"></div>
+          <div class="aspect-[3/4] bg-linen rounded-2xl overflow-hidden">
+            ${PAGES.about.storyImage
+              ? `<img src="${PAGES.about.storyImage}" alt="" class="w-full h-full object-cover">`
+              : ''}
+          </div>
         </div>
         <div class="md:col-span-3 space-y-5 text-bark-50 leading-relaxed">
           <p data-cms="about.story.p1">${PAGES.about.storyP1}</p>

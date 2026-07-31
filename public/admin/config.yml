@@ -123,6 +123,7 @@ collections:
         file: content/pages/about.json
         fields:
           - { name: heroHeading, label: Hero heading, widget: string, hint: "HTML is allowed, e.g. <br> for a manual line break." }
+          - { name: storyImage, label: Story photo, widget: image, required: false, hint: "Optional. Shown next to the story paragraphs. Leave empty to show a plain placeholder block." }
           - { name: storyP1, label: Story — paragraph 1, widget: text }
           - { name: storyP2, label: Story — paragraph 2, widget: text }
           - { name: storyP3, label: Story — paragraph 3, widget: text }
