@@ -4,6 +4,8 @@ import { icons } from '../js/icons.js';
 import { submitOrder } from '../js/api.js';
 import { SITE, PAGES } from '../js/data.js';
 
+const BASE = import.meta.env.BASE_URL || '/';
+
 function init() {
   renderNav('Contact');
   renderFooter();
@@ -89,6 +91,9 @@ function init() {
             </div>
             <h3 class="text-lg font-semibold text-bark">Message sent!</h3>
             <p class="text-bark-50 text-sm mt-2">Thanks for reaching out. We'll get back to you soon.</p>
+            <a href="${BASE}" class="inline-block mt-6 text-forest font-medium text-sm hover:underline">
+              Back to Home
+            </a>
           </div>
         </div>
       </div>

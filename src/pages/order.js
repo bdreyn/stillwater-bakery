@@ -3,6 +3,8 @@ import { $, initFadeIn, initBackToTop, toast } from '../js/utils.js';
 import { submitOrder } from '../js/api.js';
 import { PAGES } from '../js/data.js';
 
+const BASE = import.meta.env.BASE_URL || '/';
+
 function init() {
   renderNav('How to Order');
   renderFooter();
@@ -95,6 +97,9 @@ function init() {
             </div>
             <h3 class="text-lg font-semibold text-bark">Thank you!</h3>
             <p class="text-bark-50 text-sm mt-2">We'll confirm your order within 24 hours. Check your email for details.</p>
+            <a href="${BASE}" class="inline-block mt-6 text-forest font-medium text-sm hover:underline">
+              Back to Home
+            </a>
           </div>
         </div>
 
