@@ -91,6 +91,7 @@ export function renderFooter() {
               <a href="${SITE.instagramUrl}" target="_blank" rel="noopener" class="text-cream/60 hover:text-sage transition-colors" aria-label="Instagram">${icons.instagram}</a>
               <a href="${SITE.facebookUrl}" target="_blank" rel="noopener" class="text-cream/60 hover:text-sage transition-colors" aria-label="Facebook">${icons.facebook}</a>
             </div>
+            ${SITE.phone ? `<p class="text-cream/60 text-sm mt-4">${SITE.phone}</p>` : ''}
             <p class="text-cream/40 text-xs mt-6">${SITE.location}</p>
           </div>
         </div>

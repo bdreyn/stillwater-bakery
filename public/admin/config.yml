@@ -92,6 +92,7 @@ collections:
           - { name: footerLogo, label: Footer logo (optional), widget: image, required: false, hint: "Overrides the logo shown in the footer only. Leave empty to reuse the header logo above." }
           - { name: tagline, label: Footer tagline, widget: string }
           - { name: email, label: Email, widget: string }
+          - { name: phone, label: Phone, widget: string, required: false, hint: "Optional. Shown in the footer under the social links. Leave empty to hide it." }
           - { name: instagram, label: Instagram handle, widget: string, hint: "e.g. @stillwaterbakery" }
           - { name: instagramUrl, label: Instagram URL, widget: string }
           - { name: facebookUrl, label: Facebook URL, widget: string }
