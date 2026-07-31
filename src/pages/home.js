@@ -89,7 +89,11 @@ function init() {
     <!-- About Snippet -->
     <section class="max-w-6xl mx-auto px-4 sm:px-6 py-16 fade-in">
       <div class="grid md:grid-cols-2 gap-10 items-center">
-        <div class="aspect-square bg-linen rounded-2xl"></div>
+        <div class="aspect-square bg-linen rounded-2xl overflow-hidden">
+          ${PAGES.home.aboutImage
+            ? `<img src="${PAGES.home.aboutImage}" alt="" class="w-full h-full object-cover">`
+            : ''}
+        </div>
         <div class="border-l-4 border-sage pl-6">
           <p data-cms="home.about.text" class="text-bark-50 leading-relaxed">
             ${PAGES.home.aboutText}

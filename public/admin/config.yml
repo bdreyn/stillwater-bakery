@@ -115,6 +115,7 @@ collections:
           - { name: heroSubtext, label: Hero subtext, widget: text }
           - { name: menuHeading, label: "\"This Week's Menu\" section heading", widget: string }
           - { name: menuIntro, label: "\"This Week's Menu\" section intro", widget: text }
+          - { name: aboutImage, label: About snippet photo, widget: image, required: false, hint: "Optional. Shown next to the About snippet paragraph. Leave empty to show a plain placeholder block." }
           - { name: aboutText, label: About snippet paragraph, widget: text }
           - { name: eventsHeading, label: "\"Find Us Next At\" section heading", widget: string }
       - name: about
