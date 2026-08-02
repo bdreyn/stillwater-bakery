@@ -58,11 +58,6 @@ function init() {
               <p class="text-bark-50 text-sm">${SITE.location}</p>
             </div>
           </div>
-
-          <!-- Map placeholder -->
-          <div class="bg-linen rounded-xl aspect-video flex items-center justify-center">
-            <p class="text-bark-50 text-sm">Map coming soon</p>
-          </div>
         </div>
 
         <!-- Contact Form -->
