@@ -1,12 +1,13 @@
 import { renderNav, renderFooter } from '../js/router.js';
 import { $, $$, initFadeIn, initBackToTop } from '../js/utils.js';
 import { MENU, PAGES } from '../js/data.js';
+import { renderProductModal, setupProductModal } from '../js/productModal.js';
 
 const BASE = import.meta.env.BASE_URL || '/';
 
-function renderProductCard(p) {
+function renderProductCard(p, index) {
   return `
-    <div class="product-card bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 fade-in" data-category="${p.category}">
+    <div class="product-card bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 fade-in cursor-pointer" data-category="${p.category}" data-index="${index}">
       <div class="aspect-[4/3] bg-linen overflow-hidden">
         ${p.imageUrl ? `<img src="${p.imageUrl}" alt="${p.name}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">` : ''}
       </div>
@@ -16,7 +17,7 @@ function renderProductCard(p) {
         <p class="text-bark-50 text-sm mt-1.5 line-clamp-2">${p.description || ''}</p>
         <div class="flex items-center justify-between mt-4">
           ${p.price != null ? `<span class="text-forest font-medium">$${Number(p.price).toFixed(2)}</span>` : '<span></span>'}
-          <a href="${BASE}order.html" class="bg-sage text-cream text-sm px-4 py-1.5 rounded-full hover:bg-forest transition-colors duration-200">Order This</a>
+          <a href="${BASE}order.html" class="bg-sage text-cream text-sm px-4 py-1.5 rounded-full hover:bg-forest transition-colors duration-200" data-order-link>Order This</a>
         </div>
       </div>
     </div>
@@ -80,9 +81,12 @@ function init() {
         Ready to order?
       </a>
     </div>
+
+    ${renderProductModal()}
   `;
 
   setupFilters(MENU);
+  setupProductModal(MENU, '#product-grid');
   initFadeIn();
   initBackToTop();
 }

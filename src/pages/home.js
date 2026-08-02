@@ -3,12 +3,13 @@ import { $, initFadeIn, initBackToTop, renderAnnouncement } from '../js/utils.js
 import { icons } from '../js/icons.js';
 import { SITE, PAGES, upcomingEvents, featuredMenu } from '../js/data.js';
 import { fetchInstagramFeed } from '../js/instagram.js';
+import { renderProductModal, setupProductModal } from '../js/productModal.js';
 
 const BASE = import.meta.env.BASE_URL || '/';
 
-function renderMenuCard(item) {
+function renderMenuCard(item, index) {
   return `
-    <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 fade-in">
+    <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 fade-in cursor-pointer" data-index="${index}">
       <div class="aspect-[4/3] bg-linen overflow-hidden">
         ${item.imageUrl ? `<img src="${item.imageUrl}" alt="${item.name}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">` : ''}
       </div>
@@ -64,13 +65,13 @@ function init() {
       </div>
     </section>
 
-    <!-- Current Menu (text only) -->
+    <!-- Featured Menu -->
     <section class="max-w-5xl mx-auto px-4 sm:px-6 py-16 fade-in">
       <div class="text-center mb-12">
         <h2 data-cms="home.menu.heading" class="text-2xl md:text-3xl font-light text-bark">${PAGES.home.menuHeading}</h2>
         <p data-cms="home.menu.intro" class="text-bark-50 mt-3 max-w-lg mx-auto">${PAGES.home.menuIntro}</p>
       </div>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 fade-in-stagger">
+      <div id="featured-menu-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 fade-in-stagger">
         ${featuredMenu().map(renderMenuCard).join('')}
       </div>
       <div class="text-center mt-12">
@@ -126,8 +127,11 @@ function init() {
         ${icons.instagram} Follow on Instagram
       </a>
     </section>
+
+    ${renderProductModal()}
   `;
 
+  setupProductModal(featuredMenu(), '#featured-menu-grid');
   initFadeIn();
   initBackToTop();
   loadInstagramFeed();
