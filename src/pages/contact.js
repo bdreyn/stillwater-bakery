@@ -31,6 +31,16 @@ function init() {
             </div>
           </div>
 
+          ${SITE.phone ? `
+          <div class="flex items-start gap-4">
+            <span class="text-sage mt-0.5">${icons.phone}</span>
+            <div>
+              <h3 class="font-medium text-bark text-sm">Phone</h3>
+              <p class="text-bark-50 text-sm">${SITE.phone}</p>
+            </div>
+          </div>
+          ` : ''}
+
           <div class="flex items-start gap-4">
             <span class="text-sage mt-0.5">${icons.instagram}</span>
             <div>
