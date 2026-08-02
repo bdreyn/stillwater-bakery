@@ -2,8 +2,7 @@ import { defineConfig } from 'vite';
 import { resolve } from 'path';
 
 export default defineConfig({
-  // Change to '/' if using a custom domain
-  base: '/stillwater-bakery/',
+  base: '/',
 
   build: {
     rollupOptions: {

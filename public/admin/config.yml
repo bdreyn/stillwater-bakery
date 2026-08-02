@@ -16,7 +16,7 @@ backend:
 
 # Uploaded photos are stored in the repo and served from the built site.
 media_folder: "public/images/uploads"
-public_folder: "/stillwater-bakery/images/uploads"
+public_folder: "/images/uploads"
 
 # Commit straight to the branch (simplest for a single editor).
 # Switch to `editorial_workflow` if you'd rather review each change as a PR.
