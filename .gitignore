@@ -1,0 +1,38 @@
+# =============================================================================
+# PUBLIC REPO — anything not listed here is visible to the internet.
+# =============================================================================
+
+# --- Secrets & environment ---
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+secrets.json
+credentials.json
+service-account*.json
+.clasprc.json
+.clasp.json
+
+# --- Dependencies & build ---
+node_modules
+dist
+*.local
+
+# --- Logs ---
+*.log
+npm-debug.log*
+
+# --- Editor & OS ---
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+Thumbs.db
+*.sw?
+
+# --- Personal scratch ---
+scratch/
+TODO.private.md
