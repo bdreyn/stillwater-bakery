@@ -34,16 +34,16 @@
 
   /* Toast notification */
   .toast {
-    @apply fixed bottom-6 right-6 px-6 py-3 rounded-full shadow-lg text-cream text-sm font-medium z-50;
+    @apply fixed bottom-6 left-1/2 -translate-x-1/2 px-6 py-3 rounded-full shadow-lg text-cream text-sm font-medium z-[60];
     @apply transition-all duration-300;
     animation: toast-in 0.3s ease-out, toast-out 0.3s ease-in 2.7s forwards;
   }
   @keyframes toast-in {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+    to { opacity: 1; transform: translateX(-50%) translateY(0); }
   }
   @keyframes toast-out {
-    from { opacity: 1; transform: translateY(0); }
-    to { opacity: 0; transform: translateY(20px); }
+    from { opacity: 1; transform: translateX(-50%) translateY(0); }
+    to { opacity: 0; transform: translateX(-50%) translateY(20px); }
   }
 }

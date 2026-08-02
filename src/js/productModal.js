@@ -1,13 +1,12 @@
-import { $ } from './utils.js';
+import { $, toast } from './utils.js';
 import { icons } from './icons.js';
-
-const BASE = import.meta.env.BASE_URL || '/';
+import { addToCart } from './cart.js';
 
 // Shared "view item" modal used by any page that shows a grid of product
 // cards (menu page, home page featured menu). Cards must carry a
 // `data-index` attribute matching their position in the `products` array
-// passed to setupProductModal, and a `data-order-link` attribute on any
-// in-card link that should NOT open the modal (e.g. the Order This button).
+// passed to setupProductModal, and a `data-order-link` or `data-add-to-cart`
+// attribute on any in-card control that should NOT open the modal.
 export function renderProductModal() {
   return `
     <div id="product-modal" class="hidden fixed inset-0 z-50 items-center justify-center p-4">
@@ -23,7 +22,14 @@ export function renderProductModal() {
           <p id="product-modal-description" class="text-bark-50 text-sm mt-3 leading-relaxed"></p>
           <div class="flex items-center justify-between mt-6">
             <span id="product-modal-price" class="text-forest font-medium"></span>
-            <a href="${BASE}order.html" class="bg-sage text-cream text-sm px-4 py-1.5 rounded-full hover:bg-forest transition-colors duration-200">Order This</a>
+            <div class="flex items-center gap-3">
+              <div class="flex items-center gap-2">
+                <button id="product-modal-qty-minus" class="w-8 h-8 rounded-full bg-linen flex items-center justify-center text-bark hover:bg-sage/20 transition-colors" aria-label="Decrease quantity">${icons.minus}</button>
+                <span id="product-modal-qty" class="text-sm w-4 text-center">1</span>
+                <button id="product-modal-qty-plus" class="w-8 h-8 rounded-full bg-linen flex items-center justify-center text-bark hover:bg-sage/20 transition-colors" aria-label="Increase quantity">${icons.plus}</button>
+              </div>
+              <button id="product-modal-add" class="bg-sage text-cream text-sm px-4 py-1.5 rounded-full hover:bg-forest transition-colors duration-200">Add to Cart</button>
+            </div>
           </div>
         </div>
       </div>
@@ -36,7 +42,17 @@ export function setupProductModal(products, gridSelector) {
   const grid = $(gridSelector);
   if (!modal || !grid) return;
 
+  let current = null;
+  let qty = 1;
+
+  const renderQty = () => {
+    $('#product-modal-qty').textContent = qty;
+  };
+
   const open = (p) => {
+    current = p;
+    qty = 1;
+    renderQty();
     $('#product-modal-image').innerHTML = p.imageUrl
       ? `<img src="${p.imageUrl}" alt="${p.name}" class="w-full h-full object-cover">`
       : '';
@@ -56,7 +72,7 @@ export function setupProductModal(products, gridSelector) {
   };
 
   grid.addEventListener('click', (e) => {
-    if (e.target.closest('[data-order-link]')) return;
+    if (e.target.closest('[data-order-link], [data-add-to-cart]')) return;
     const card = e.target.closest('[data-index]');
     if (!card) return;
     const p = products[Number(card.dataset.index)];
@@ -67,5 +83,20 @@ export function setupProductModal(products, gridSelector) {
   $('#product-modal-close').addEventListener('click', close);
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') close();
+  });
+
+  $('#product-modal-qty-plus').addEventListener('click', () => {
+    qty += 1;
+    renderQty();
+  });
+  $('#product-modal-qty-minus').addEventListener('click', () => {
+    qty = Math.max(1, qty - 1);
+    renderQty();
+  });
+  $('#product-modal-add').addEventListener('click', () => {
+    if (!current) return;
+    addToCart(current, qty);
+    toast(`Added ${qty} × ${current.name} to cart`);
+    close();
   });
 }

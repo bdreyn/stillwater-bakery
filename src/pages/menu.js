@@ -2,6 +2,7 @@ import { renderNav, renderFooter } from '../js/router.js';
 import { $, $$, initFadeIn, initBackToTop } from '../js/utils.js';
 import { MENU, PAGES } from '../js/data.js';
 import { renderProductModal, setupProductModal } from '../js/productModal.js';
+import { wireAddToCart } from '../js/cartUI.js';
 
 const BASE = import.meta.env.BASE_URL || '/';
 
@@ -17,7 +18,7 @@ function renderProductCard(p, index) {
         <p class="text-bark-50 text-sm mt-1.5 line-clamp-2">${p.description || ''}</p>
         <div class="flex items-center justify-between mt-4">
           ${p.price != null ? `<span class="text-forest font-medium">$${Number(p.price).toFixed(2)}</span>` : '<span></span>'}
-          <a href="${BASE}order.html" class="bg-sage text-cream text-sm px-4 py-1.5 rounded-full hover:bg-forest transition-colors duration-200" data-order-link>Order This</a>
+          <button class="bg-sage text-cream text-sm px-4 py-1.5 rounded-full hover:bg-forest transition-colors duration-200" data-add-to-cart data-index="${index}">Add to Cart</button>
         </div>
       </div>
     </div>
@@ -87,6 +88,7 @@ function init() {
 
   setupFilters(MENU);
   setupProductModal(MENU, '#product-grid');
+  wireAddToCart('#product-grid', MENU);
   initFadeIn();
   initBackToTop();
 }

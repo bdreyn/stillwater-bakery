@@ -1,5 +1,6 @@
 import { icons } from './icons.js';
 import { SITE } from './data.js';
+import { cartButtonHtml, initCartUI } from './cartUI.js';
 
 const BASE = import.meta.env.BASE_URL || '/';
 
@@ -31,13 +32,17 @@ export function renderNav(currentPage) {
           ${NAV_LINKS.map(l => `
             <a href="${l.href}" class="text-sm ${l.label === currentPage ? 'text-forest border-b-2 border-sage pb-0.5' : 'text-bark-50 hover:text-forest transition-colors'}">${l.label}</a>
           `).join('')}
+          ${cartButtonHtml()}
           <a href="${BASE}order.html" class="ml-2 bg-sage text-cream text-sm font-medium px-5 py-2 rounded-full hover:bg-forest transition-colors duration-200 hover:scale-[1.02]">Place an Order</a>
         </div>
 
-        <!-- Mobile hamburger -->
-        <button id="nav-toggle" class="md:hidden text-bark p-2" aria-label="Open menu">
-          ${icons.menu}
-        </button>
+        <!-- Mobile: cart + hamburger -->
+        <div class="flex items-center gap-4 md:hidden">
+          ${cartButtonHtml()}
+          <button id="nav-toggle" class="text-bark p-2" aria-label="Open menu">
+            ${icons.menu}
+          </button>
+        </div>
       </div>
 
       <!-- Mobile drawer -->
@@ -51,6 +56,8 @@ export function renderNav(currentPage) {
       </div>
     </div>
   `;
+
+  initCartUI();
 
   // Toggle mobile menu
   const toggle = document.getElementById('nav-toggle');

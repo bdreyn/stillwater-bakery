@@ -2,6 +2,7 @@ import { renderNav, renderFooter } from '../js/router.js';
 import { $, initFadeIn, initBackToTop, toast } from '../js/utils.js';
 import { submitOrder } from '../js/api.js';
 import { PAGES } from '../js/data.js';
+import { getCart, formatOrderText, clearCart } from '../js/cart.js';
 
 const BASE = import.meta.env.BASE_URL || '/';
 
@@ -72,10 +73,13 @@ function init() {
             </div>
 
             <div>
-              <label for="details" class="block text-sm font-medium text-bark mb-1">What would you like to order? *</label>
+              <div class="flex items-center justify-between mb-1">
+                <label for="details" class="block text-sm font-medium text-bark">What would you like to order? *</label>
+                ${getCart().length ? '<span class="text-xs text-sage">Filled in from your cart</span>' : ''}
+              </div>
               <textarea id="details" name="details" rows="4" required
                 class="w-full bg-cream border border-linen rounded-lg px-4 py-3 text-bark placeholder:text-bark-30 focus:outline-none focus:ring-2 focus:ring-sage/50 resize-none"
-                placeholder="e.g. 1 Sourdough Loaf, 1 dozen Chocolate Chip Cookies, 1 Pecan Pie"></textarea>
+                placeholder="e.g. 1 Sourdough Loaf, 1 dozen Chocolate Chip Cookies, 1 Pecan Pie">${getCart().length ? formatOrderText() : ''}</textarea>
             </div>
 
             <div>
@@ -141,6 +145,7 @@ function init() {
 
     try {
       await submitOrder(data);
+      clearCart();
       form.classList.add('hidden');
       $('#order-success').classList.remove('hidden');
       toast('Order submitted!');

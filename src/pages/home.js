@@ -4,6 +4,7 @@ import { icons } from '../js/icons.js';
 import { SITE, PAGES, upcomingEvents, featuredMenu } from '../js/data.js';
 import { fetchInstagramFeed } from '../js/instagram.js';
 import { renderProductModal, setupProductModal } from '../js/productModal.js';
+import { wireAddToCart } from '../js/cartUI.js';
 
 const BASE = import.meta.env.BASE_URL || '/';
 
@@ -17,6 +18,10 @@ function renderMenuCard(item, index) {
         <span class="text-xs text-sage font-medium uppercase tracking-wide">${item.category}</span>
         <h3 class="font-semibold text-bark mt-1">${item.name}</h3>
         <p class="text-bark-50 text-sm mt-1.5 line-clamp-2">${item.description || ''}</p>
+        <div class="flex items-center justify-between mt-4">
+          ${item.price != null ? `<span class="text-forest font-medium">$${Number(item.price).toFixed(2)}</span>` : '<span></span>'}
+          <button class="bg-sage text-cream text-sm px-4 py-1.5 rounded-full hover:bg-forest transition-colors duration-200" data-add-to-cart data-index="${index}">Add to Cart</button>
+        </div>
       </div>
     </div>
   `;
@@ -40,6 +45,7 @@ function init() {
   if (!main) return;
 
   const upcoming = upcomingEvents().slice(0, 3);
+  const featured = featuredMenu();
 
   main.innerHTML = `
     ${renderAnnouncement()}
@@ -72,7 +78,7 @@ function init() {
         <p data-cms="home.menu.intro" class="text-bark-50 mt-3 max-w-lg mx-auto">${PAGES.home.menuIntro}</p>
       </div>
       <div id="featured-menu-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 fade-in-stagger">
-        ${featuredMenu().map(renderMenuCard).join('')}
+        ${featured.map(renderMenuCard).join('')}
       </div>
       <div class="text-center mt-12">
         <a href="${BASE}order.html" class="inline-block bg-sage text-cream font-medium px-8 py-3 rounded-full hover:bg-forest transition-all duration-200 hover:scale-[1.02]">
@@ -131,7 +137,8 @@ function init() {
     ${renderProductModal()}
   `;
 
-  setupProductModal(featuredMenu(), '#featured-menu-grid');
+  setupProductModal(featured, '#featured-menu-grid');
+  wireAddToCart('#featured-menu-grid', featured);
   initFadeIn();
   initBackToTop();
   loadInstagramFeed();
