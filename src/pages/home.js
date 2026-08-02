@@ -1,27 +1,21 @@
 import { renderNav, renderFooter } from '../js/router.js';
 import { $, initFadeIn, initBackToTop, renderAnnouncement } from '../js/utils.js';
 import { icons } from '../js/icons.js';
-import { SITE, PAGES, menuByCategory, upcomingEvents, featuredMenu } from '../js/data.js';
+import { SITE, PAGES, upcomingEvents, featuredMenu } from '../js/data.js';
 import { fetchInstagramFeed } from '../js/instagram.js';
 
 const BASE = import.meta.env.BASE_URL || '/';
 
-// Text-only menu entry: dish name + smaller description.
-function renderMenuItem(item) {
+function renderMenuCard(item) {
   return `
-    <div class="fade-in">
-      <h4 class="text-bark font-medium">${item.name}</h4>
-      <p class="text-bark-50 text-sm mt-0.5 leading-relaxed">${item.description || ''}</p>
-    </div>
-  `;
-}
-
-function renderMenuGroup(group) {
-  return `
-    <div class="fade-in">
-      <h3 class="text-sm font-semibold uppercase tracking-wide text-sage mb-4">${group.category}</h3>
-      <div class="space-y-5">
-        ${group.dishes.map(renderMenuItem).join('')}
+    <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 fade-in">
+      <div class="aspect-[4/3] bg-linen overflow-hidden">
+        ${item.imageUrl ? `<img src="${item.imageUrl}" alt="${item.name}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">` : ''}
+      </div>
+      <div class="p-5">
+        <span class="text-xs text-sage font-medium uppercase tracking-wide">${item.category}</span>
+        <h3 class="font-semibold text-bark mt-1">${item.name}</h3>
+        <p class="text-bark-50 text-sm mt-1.5 line-clamp-2">${item.description || ''}</p>
       </div>
     </div>
   `;
@@ -76,8 +70,8 @@ function init() {
         <h2 data-cms="home.menu.heading" class="text-2xl md:text-3xl font-light text-bark">${PAGES.home.menuHeading}</h2>
         <p data-cms="home.menu.intro" class="text-bark-50 mt-3 max-w-lg mx-auto">${PAGES.home.menuIntro}</p>
       </div>
-      <div class="grid md:grid-cols-2 gap-x-12 gap-y-10 fade-in-stagger">
-        ${menuByCategory(featuredMenu()).map(renderMenuGroup).join('')}
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 fade-in-stagger">
+        ${featuredMenu().map(renderMenuCard).join('')}
       </div>
       <div class="text-center mt-12">
         <a href="${BASE}order.html" class="inline-block bg-sage text-cream font-medium px-8 py-3 rounded-full hover:bg-forest transition-all duration-200 hover:scale-[1.02]">
