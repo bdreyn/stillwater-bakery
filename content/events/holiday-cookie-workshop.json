@@ -4,7 +4,5 @@
   "date": "2026-08-29",
   "time": "9am--3pm",
   "venue": "330 S Irving St.",
-  "city": "San Angelo",
-  "past": false,
-  "order": 50
+  "city": "San Angelo"
 }

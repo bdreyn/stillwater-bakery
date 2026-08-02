@@ -30,9 +30,10 @@ const menuFiles = import.meta.glob('../../content/menu/*.json', { eager: true, i
 const eventFiles = import.meta.glob('../../content/events/*.json', { eager: true, import: 'default' });
 
 const byOrder = (a, b) => (a.order ?? 999) - (b.order ?? 999);
+const byDate = (a, b) => new Date(a.date) - new Date(b.date);
 
 export const MENU = Object.values(menuFiles).sort(byOrder);
-export const EVENTS = Object.values(eventFiles).sort(byOrder);
+export const EVENTS = Object.values(eventFiles).sort(byDate);
 export const GALLERY = galleryData.items || [];
 export const SITE = siteData;
 export const ANNOUNCEMENT = announcementData;
@@ -62,8 +63,17 @@ export function menuByCategory(items = MENU) {
   return [...groups.entries()].map(([category, dishes]) => ({ category, dishes }));
 }
 
-export const upcomingEvents = (items = EVENTS) => items.filter((e) => !e.past);
-export const pastEvents = (items = EVENTS) => items.filter((e) => e.past);
+// An event is "past" once its date is before today — no manual flag needed.
+function isPastEvent(e) {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  return new Date(e.date) < today;
+}
+
+// Soonest first; EVENTS is already date-sorted ascending.
+export const upcomingEvents = (items = EVENTS) => items.filter((e) => !isPastEvent(e));
+// Most recently past first.
+export const pastEvents = (items = EVENTS) => items.filter(isPastEvent).reverse();
 
 // Items shown in the home page's "This Week's Menu" section. Unset `featured`
 // defaults to shown, so existing items don't disappear when the field is added.
