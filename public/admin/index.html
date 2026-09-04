@@ -9,5 +9,86 @@
 <body>
   <!-- Sveltia CMS: a Git-based editor. Loads its config from ./config.yml -->
   <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
+
+  <!-- Custom preview panes for Menu items and Events, styled to match the
+       live site (brand colors below mirror tailwind.config.js) so editors
+       can see roughly what a card will look like before publishing. Written
+       with the CMS's global `h`/`createClass` helpers (no JSX/build step) —
+       see https://decapcms.org/docs/customization/ for the underlying API,
+       which Sveltia CMS mirrors for compatibility. -->
+  <script>
+    var BRAND = {
+      cream: '#f8f4ef',
+      linen: '#d2bdab',
+      bark: '#594a47',
+      barkMuted: 'rgba(89, 74, 71, 0.6)',
+      sage: '#9bb58d',
+      forest: '#667d59',
+      font: "'Schibsted Grotesk', system-ui, sans-serif",
+    };
+
+    // Loads the preview iframe's own font, since registerPreviewStyle injects
+    // into that document, not this one.
+    CMS.registerPreviewStyle(
+      "@import url('https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&display=swap');",
+      { raw: true }
+    );
+
+    function cardWrap(child) {
+      return h('div', { style: { fontFamily: BRAND.font, background: BRAND.cream, minHeight: '100%', padding: '32px', boxSizing: 'border-box' } }, child);
+    }
+
+    var MenuItemPreview = createClass({
+      render: function () {
+        var entry = this.props.entry;
+        var name = entry.getIn(['data', 'name']) || 'Untitled item';
+        var category = entry.getIn(['data', 'category']) || '';
+        var price = entry.getIn(['data', 'price']);
+        var image = entry.getIn(['data', 'imageUrl']);
+        var imgAsset = image ? this.props.getAsset(image) : null;
+
+        return cardWrap(
+          h('div', { style: { maxWidth: '360px', margin: '0 auto', background: '#fff', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 1px 3px rgba(0,0,0,0.12)' } },
+            h('div', { style: { aspectRatio: '4 / 3', background: BRAND.linen, overflow: 'hidden' } },
+              imgAsset ? h('img', { src: imgAsset.toString(), style: { width: '100%', height: '100%', objectFit: 'cover', display: 'block' } }) : null
+            ),
+            h('div', { style: { padding: '20px' } },
+              h('span', { style: { fontSize: '12px', color: BRAND.sage, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em' } }, category),
+              h('h3', { style: { fontSize: '18px', fontWeight: 600, color: BRAND.bark, margin: '4px 0 0' } }, name),
+              h('div', { style: { fontSize: '14px', color: BRAND.barkMuted, margin: '6px 0 0', lineHeight: 1.5 } }, this.props.widgetFor('description')),
+              h('div', { style: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: '16px' } },
+                h('span', { style: { color: BRAND.forest, fontWeight: 600 } }, price != null && price !== '' ? '$' + Number(price).toFixed(2) : ''),
+                h('span', { style: { background: BRAND.sage, color: BRAND.cream, fontSize: '13px', padding: '6px 16px', borderRadius: '999px' } }, 'Add to Cart')
+              )
+            )
+          )
+        );
+      }
+    });
+
+    var EventPreview = createClass({
+      render: function () {
+        var entry = this.props.entry;
+        var title = entry.getIn(['data', 'title']) || 'Untitled event';
+        var date = entry.getIn(['data', 'date']) || '';
+        var time = entry.getIn(['data', 'time']) || '';
+        var venue = entry.getIn(['data', 'venue']) || '';
+        var city = entry.getIn(['data', 'city']) || '';
+        var meta = [venue, city].filter(Boolean).join(', ');
+
+        return cardWrap(
+          h('div', { style: { maxWidth: '420px', margin: '0 auto', background: '#fff', borderRadius: '12px', padding: '24px', borderLeft: '4px solid ' + BRAND.sage, boxShadow: '0 1px 3px rgba(0,0,0,0.12)' } },
+            h('h3', { style: { fontSize: '18px', fontWeight: 600, color: BRAND.bark, margin: 0 } }, title),
+            h('div', { style: { fontSize: '14px', color: BRAND.forest, marginTop: '8px' } }, date + (time ? ' · ' + time : '')),
+            meta ? h('div', { style: { fontSize: '14px', color: BRAND.barkMuted, marginTop: '4px' } }, meta) : null,
+            h('div', { style: { fontSize: '14px', color: BRAND.barkMuted, marginTop: '12px', lineHeight: 1.5 } }, this.props.widgetFor('description'))
+          )
+        );
+      }
+    });
+
+    CMS.registerPreviewTemplate('menu', MenuItemPreview);
+    CMS.registerPreviewTemplate('events', EventPreview);
+  </script>
 </body>
 </html>

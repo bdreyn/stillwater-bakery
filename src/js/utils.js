@@ -1,3 +1,4 @@
+import { marked } from 'marked';
 import { ANNOUNCEMENT } from './data.js';
 
 // ---------------------------------------------------------------------------
@@ -5,6 +6,17 @@ import { ANNOUNCEMENT } from './data.js';
 // ---------------------------------------------------------------------------
 export const $ = (sel, root = document) => root.querySelector(sel);
 export const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
+
+// ---------------------------------------------------------------------------
+// Markdown
+// ---------------------------------------------------------------------------
+// Content fields edited with the CMS's rich-text (markdown) toolbar — bold,
+// italic, links — come back as markdown source, not HTML. This renders that
+// inline (no wrapping <p>, since every field is already inside one). Content
+// is authored by the site owner through the GitHub-authenticated CMS, the
+// same trust level as the raw HTML a few fields already allow, so it's
+// rendered as-is rather than sanitized.
+export const md = (text) => marked.parseInline(text || '');
 
 // ---------------------------------------------------------------------------
 // Scroll-triggered fade-in

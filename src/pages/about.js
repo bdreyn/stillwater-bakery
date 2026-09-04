@@ -1,5 +1,5 @@
 import { renderNav, renderFooter } from '../js/router.js';
-import { $, initFadeIn, initBackToTop } from '../js/utils.js';
+import { $, initFadeIn, initBackToTop, md } from '../js/utils.js';
 import { PAGES } from '../js/data.js';
 
 const VALUE_ICONS = [
@@ -21,7 +21,7 @@ function renderValueCard(v, i) {
         ${VALUE_ICONS[i] || VALUE_ICONS[0]}
       </div>
       <h3 data-cms="about.values.${i}.title" class="font-semibold text-bark mb-2">${v.title}</h3>
-      <p data-cms="about.values.${i}.description" class="text-bark-50 text-sm">${v.description}</p>
+      <p data-cms="about.values.${i}.description" class="text-bark-50 text-sm">${md(v.description)}</p>
     </div>
   `;
 }
@@ -54,9 +54,9 @@ function init() {
           </div>
         </div>
         <div class="md:col-span-3 space-y-5 text-bark-50 leading-relaxed">
-          <p data-cms="about.story.p1">${PAGES.about.storyP1}</p>
-          <p data-cms="about.story.p2">${PAGES.about.storyP2}</p>
-          <p data-cms="about.story.p3">${PAGES.about.storyP3}</p>
+          <p data-cms="about.story.p1">${md(PAGES.about.storyP1)}</p>
+          <p data-cms="about.story.p2">${md(PAGES.about.storyP2)}</p>
+          <p data-cms="about.story.p3">${md(PAGES.about.storyP3)}</p>
         </div>
       </div>
     </section>

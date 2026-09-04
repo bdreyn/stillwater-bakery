@@ -1,5 +1,5 @@
 import { renderNav, renderFooter } from '../js/router.js';
-import { $, initFadeIn, initBackToTop, toast } from '../js/utils.js';
+import { $, initFadeIn, initBackToTop, toast, md } from '../js/utils.js';
 import { submitOrder } from '../js/api.js';
 import { PAGES } from '../js/data.js';
 import { getCart, formatOrderText, clearCart } from '../js/cart.js';
@@ -17,7 +17,7 @@ function init() {
     <section class="max-w-4xl mx-auto px-4 sm:px-6 py-12 md:py-16">
       <div class="text-center mb-12 fade-in">
         <h1 data-cms="order.hero.heading" class="text-3xl md:text-5xl font-light text-bark">${PAGES.order.heroHeading}</h1>
-        <p data-cms="order.intro" class="text-bark-50 mt-3">${PAGES.order.intro}</p>
+        <p data-cms="order.intro" class="text-bark-50 mt-3">${md(PAGES.order.intro)}</p>
       </div>
 
       <!-- Steps Timeline -->
@@ -30,7 +30,7 @@ function init() {
             <div class="relative mb-8 last:mb-0">
               <div class="absolute -left-12 w-9 h-9 bg-sage text-cream rounded-full flex items-center justify-center font-semibold text-sm">${i + 1}</div>
               <h3 data-cms="order.steps.${i}.title" class="font-semibold text-forest">${step.title}</h3>
-              <p data-cms="order.steps.${i}.description" class="text-bark-50 text-sm mt-1">${step.description}</p>
+              <p data-cms="order.steps.${i}.description" class="text-bark-50 text-sm mt-1">${md(step.description)}</p>
             </div>
           `).join('')}
         </div>
@@ -109,7 +109,7 @@ function init() {
 
         <!-- Notice -->
         <div data-cms="order.notice" class="mt-6 bg-cream border border-linen rounded-xl p-4 text-bark-50 text-sm fade-in">
-          ${PAGES.order.notice}
+          ${md(PAGES.order.notice)}
         </div>
       </div>
     </section>

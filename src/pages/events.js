@@ -1,5 +1,5 @@
 import { renderNav, renderFooter } from '../js/router.js';
-import { $, initFadeIn, initBackToTop } from '../js/utils.js';
+import { $, initFadeIn, initBackToTop, md } from '../js/utils.js';
 import { icons } from '../js/icons.js';
 import { upcomingEvents, pastEvents, PAGES } from '../js/data.js';
 
@@ -13,7 +13,7 @@ function renderEventCard(e, past = false) {
         <span class="text-forest">${icons.clock} ${e.date || ''}${e.time ? ' · ' + e.time : ''}</span>
         <span class="text-bark-50">${icons.mapPin} ${e.venue || ''}${e.city ? ', ' + e.city : ''}</span>
       </div>
-      <p class="text-bark-50 text-sm mt-3">${e.description || ''}</p>
+      <p class="text-bark-50 text-sm mt-3">${md(e.description)}</p>
     </div>
   `;
 }
@@ -32,7 +32,7 @@ function init() {
     <section class="max-w-4xl mx-auto px-4 sm:px-6 py-12 md:py-16">
       <div class="text-center mb-10 fade-in">
         <h1 data-cms="events.hero.heading" class="text-3xl md:text-5xl font-light text-bark">${PAGES.events.heroHeading}</h1>
-        <p data-cms="events.hero.subtext" class="text-bark-50 mt-3 max-w-lg mx-auto">${PAGES.events.heroSubtext}</p>
+        <p data-cms="events.hero.subtext" class="text-bark-50 mt-3 max-w-lg mx-auto">${md(PAGES.events.heroSubtext)}</p>
       </div>
 
       ${upcoming.length ? `

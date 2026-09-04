@@ -1,4 +1,4 @@
-import { $, toast } from './utils.js';
+import { $, toast, md } from './utils.js';
 import { icons } from './icons.js';
 import { addToCart } from './cart.js';
 
@@ -58,7 +58,7 @@ export function setupProductModal(products, gridSelector) {
       : '';
     $('#product-modal-category').textContent = p.category || '';
     $('#product-modal-name').textContent = p.name;
-    $('#product-modal-description').textContent = p.description || '';
+    $('#product-modal-description').innerHTML = md(p.description);
     $('#product-modal-price').textContent = p.price != null ? `$${Number(p.price).toFixed(2)}` : '';
     modal.classList.remove('hidden');
     modal.classList.add('flex');

@@ -1,5 +1,5 @@
 import { renderNav, renderFooter } from '../js/router.js';
-import { $, $$, initFadeIn, initBackToTop } from '../js/utils.js';
+import { $, $$, initFadeIn, initBackToTop, md } from '../js/utils.js';
 import { MENU, PAGES } from '../js/data.js';
 import { renderProductModal, setupProductModal } from '../js/productModal.js';
 import { wireAddToCart } from '../js/cartUI.js';
@@ -15,7 +15,7 @@ function renderProductCard(p, index) {
       <div class="p-5">
         <span class="text-xs text-sage font-medium uppercase tracking-wide">${p.category}</span>
         <h3 class="font-semibold text-bark mt-1">${p.name}</h3>
-        <p class="text-bark-50 text-sm mt-1.5 line-clamp-2">${p.description || ''}</p>
+        <p class="text-bark-50 text-sm mt-1.5 line-clamp-2">${md(p.description)}</p>
         <div class="flex items-center justify-between mt-4">
           ${p.price != null ? `<span class="text-forest font-medium">$${Number(p.price).toFixed(2)}</span>` : '<span></span>'}
           <button class="bg-sage text-cream text-sm px-4 py-1.5 rounded-full hover:bg-forest transition-colors duration-200" data-add-to-cart data-index="${index}">Add to Cart</button>
@@ -67,7 +67,7 @@ function init() {
     <section class="max-w-6xl mx-auto px-4 sm:px-6 py-12 md:py-16">
       <div class="text-center mb-10 fade-in">
         <h1 data-cms="menu.hero.heading" class="text-3xl md:text-5xl font-light text-bark">${PAGES.menu.heroHeading}</h1>
-        <p data-cms="menu.hero.subtext" class="text-bark-50 mt-3 max-w-lg mx-auto">${PAGES.menu.heroSubtext}</p>
+        <p data-cms="menu.hero.subtext" class="text-bark-50 mt-3 max-w-lg mx-auto">${md(PAGES.menu.heroSubtext)}</p>
       </div>
 
       <div id="filter-bar" class="flex flex-wrap justify-center gap-2 mb-8 fade-in"></div>

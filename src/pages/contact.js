@@ -1,5 +1,5 @@
 import { renderNav, renderFooter } from '../js/router.js';
-import { $, initFadeIn, initBackToTop, toast } from '../js/utils.js';
+import { $, initFadeIn, initBackToTop, toast, md } from '../js/utils.js';
 import { icons } from '../js/icons.js';
 import { submitOrder } from '../js/api.js';
 import { SITE, PAGES } from '../js/data.js';
@@ -17,7 +17,7 @@ function init() {
     <section class="max-w-4xl mx-auto px-4 sm:px-6 py-12 md:py-16">
       <div class="text-center mb-12 fade-in">
         <h1 data-cms="contact.hero.heading" class="text-3xl md:text-5xl font-light text-bark">${PAGES.contact.heroHeading}</h1>
-        <p data-cms="contact.intro" class="text-bark-50 mt-3">${PAGES.contact.intro}</p>
+        <p data-cms="contact.intro" class="text-bark-50 mt-3">${md(PAGES.contact.intro)}</p>
       </div>
 
       <div class="grid md:grid-cols-2 gap-10">

@@ -1,5 +1,5 @@
 import { renderNav, renderFooter } from '../js/router.js';
-import { $, initFadeIn, initBackToTop, renderAnnouncement } from '../js/utils.js';
+import { $, initFadeIn, initBackToTop, renderAnnouncement, md } from '../js/utils.js';
 import { icons } from '../js/icons.js';
 import { SITE, PAGES, upcomingEvents, featuredMenu } from '../js/data.js';
 import { fetchInstagramFeed } from '../js/instagram.js';
@@ -17,7 +17,7 @@ function renderMenuCard(item, index) {
       <div class="p-5">
         <span class="text-xs text-sage font-medium uppercase tracking-wide">${item.category}</span>
         <h3 class="font-semibold text-bark mt-1">${item.name}</h3>
-        <p class="text-bark-50 text-sm mt-1.5 line-clamp-2">${item.description || ''}</p>
+        <p class="text-bark-50 text-sm mt-1.5 line-clamp-2">${md(item.description)}</p>
         <div class="flex items-center justify-between mt-4">
           ${item.price != null ? `<span class="text-forest font-medium">$${Number(item.price).toFixed(2)}</span>` : '<span></span>'}
           <button class="bg-sage text-cream text-sm px-4 py-1.5 rounded-full hover:bg-forest transition-colors duration-200" data-add-to-cart data-index="${index}">Add to Cart</button>
@@ -58,7 +58,7 @@ function init() {
           ${PAGES.home.heroHeading}
         </h1>
         <p data-cms="home.hero.subtext" class="text-bark-50 text-lg mt-6 max-w-xl mx-auto leading-relaxed">
-          ${PAGES.home.heroSubtext}
+          ${md(PAGES.home.heroSubtext)}
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center mt-10">
           <a href="${BASE}menu.html" class="bg-sage text-cream font-medium px-8 py-3 rounded-full hover:bg-forest transition-all duration-200 hover:scale-[1.02]">
@@ -75,7 +75,7 @@ function init() {
     <section class="max-w-5xl mx-auto px-4 sm:px-6 py-16 fade-in">
       <div class="text-center mb-12">
         <h2 data-cms="home.menu.heading" class="text-2xl md:text-3xl font-light text-bark">${PAGES.home.menuHeading}</h2>
-        <p data-cms="home.menu.intro" class="text-bark-50 mt-3 max-w-lg mx-auto">${PAGES.home.menuIntro}</p>
+        <p data-cms="home.menu.intro" class="text-bark-50 mt-3 max-w-lg mx-auto">${md(PAGES.home.menuIntro)}</p>
       </div>
       <div id="featured-menu-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 fade-in-stagger">
         ${featured.map(renderMenuCard).join('')}
@@ -97,7 +97,7 @@ function init() {
         </div>
         <div class="border-l-4 border-sage pl-6">
           <p data-cms="home.about.text" class="text-bark-50 leading-relaxed">
-            ${PAGES.home.aboutText}
+            ${md(PAGES.home.aboutText)}
           </p>
           <a href="${BASE}about.html" class="inline-block mt-4 text-forest font-medium text-sm hover:underline">
             Meet the Baker ${icons.arrowRight}

@@ -37,11 +37,8 @@ collections:
     sortable_fields: [order, name, category, price]
     fields:
       - { name: name, label: Dish name, widget: string }
-      - { name: description, label: Description, widget: text }
-      - name: category
-        label: Category
-        widget: select
-        options: ["Breads", "Pies & Tarts", "Cookies & Bars", "Seasonal Specials"]
+      - { name: description, label: Description, widget: markdown, buttons: [bold, italic, link], minimal: true }
+      - { name: category, label: Category, widget: string, hint: "Type a category to group this item under on the Menu page (e.g. Breads, Cookies, Seasonal Specials). Use the exact same spelling as an existing category to add to it instead of creating a new one." }
       - { name: price, label: Price (USD), widget: number, value_type: float, min: 0, required: false }
       - { name: imageUrl, label: Photo, widget: image, required: false, hint: "Optional. Used on the Menu page cards, not the home-page list." }
       - { name: featured, label: Show on home page, widget: boolean, default: true, hint: "Turn off to keep this item on the full Menu page but hide it from the home page's This Week's Menu section." }
@@ -61,7 +58,7 @@ collections:
     sortable_fields: [date, title]
     fields:
       - { name: title, label: Title, widget: string }
-      - { name: description, label: Description, widget: text, required: false }
+      - { name: description, label: Description, widget: markdown, buttons: [bold, italic, link], minimal: true, required: false }
       - { name: date, label: Date, widget: string, hint: "e.g. 2025-06-14. Events are ordered and moved to Past Events automatically based on this date." }
       - { name: time, label: Time, widget: string, required: false, hint: "e.g. 8am – 12pm" }
       - { name: venue, label: Venue, widget: string, required: false }
@@ -111,11 +108,11 @@ collections:
         fields:
           - { name: heroImage, label: Hero background image, widget: image, required: false, hint: "Optional. Displayed full-width behind the hero heading, cropped to cover the space, with a soft overlay so the text stays readable." }
           - { name: heroHeading, label: Hero heading, widget: string, hint: "HTML is allowed, e.g. <br> for a manual line break." }
-          - { name: heroSubtext, label: Hero subtext, widget: text }
+          - { name: heroSubtext, label: Hero subtext, widget: markdown, buttons: [bold, italic, link], minimal: true }
           - { name: menuHeading, label: "\"This Week's Menu\" section heading", widget: string }
-          - { name: menuIntro, label: "\"This Week's Menu\" section intro", widget: text }
+          - { name: menuIntro, label: "\"This Week's Menu\" section intro", widget: markdown, buttons: [bold, italic, link], minimal: true }
           - { name: aboutImage, label: About snippet photo, widget: image, required: false, hint: "Optional. Shown next to the About snippet paragraph. Leave empty to show a plain placeholder block." }
-          - { name: aboutText, label: About snippet paragraph, widget: text }
+          - { name: aboutText, label: About snippet paragraph, widget: markdown, buttons: [bold, italic, link], minimal: true }
           - { name: eventsHeading, label: "\"Find Us Next At\" section heading", widget: string }
       - name: about
         label: About Page
@@ -123,42 +120,42 @@ collections:
         fields:
           - { name: heroHeading, label: Hero heading, widget: string, hint: "HTML is allowed, e.g. <br> for a manual line break." }
           - { name: storyImage, label: Story photo, widget: image, required: false, hint: "Optional. Shown next to the story paragraphs. Leave empty to show a plain placeholder block." }
-          - { name: storyP1, label: Story — paragraph 1, widget: text }
-          - { name: storyP2, label: Story — paragraph 2, widget: text }
-          - { name: storyP3, label: Story — paragraph 3, widget: text }
+          - { name: storyP1, label: Story — paragraph 1, widget: markdown, buttons: [bold, italic, link], minimal: true }
+          - { name: storyP2, label: Story — paragraph 2, widget: markdown, buttons: [bold, italic, link], minimal: true }
+          - { name: storyP3, label: Story — paragraph 3, widget: markdown, buttons: [bold, italic, link], minimal: true }
           - name: values
             label: Values cards
             widget: list
             hint: "Exactly 3 cards are shown, each with its own icon."
             fields:
               - { name: title, label: Title, widget: string }
-              - { name: description, label: Description, widget: text }
+              - { name: description, label: Description, widget: markdown, buttons: [bold, italic, link], minimal: true }
       - name: order
         label: How to Order Page
         file: content/pages/order.json
         fields:
           - { name: heroHeading, label: Hero heading, widget: string }
-          - { name: intro, label: Intro text, widget: text }
+          - { name: intro, label: Intro text, widget: markdown, buttons: [bold, italic, link], minimal: true }
           - name: steps
             label: Steps
             widget: list
             hint: "The numbered circle is generated automatically from each step's position."
             fields:
               - { name: title, label: Title, widget: string }
-              - { name: description, label: Description, widget: text }
-          - { name: notice, label: Lead-time notice, widget: text, hint: "HTML is allowed, e.g. <strong> for bold text." }
+              - { name: description, label: Description, widget: markdown, buttons: [bold, italic, link], minimal: true }
+          - { name: notice, label: Lead-time notice, widget: markdown, buttons: [bold, italic, link], minimal: true, hint: "Use the toolbar's Bold button for emphasis, e.g. on the notice deadline." }
       - name: menu
         label: Menu Page
         file: content/pages/menu.json
         fields:
           - { name: heroHeading, label: Hero heading, widget: string }
-          - { name: heroSubtext, label: Hero subtext, widget: text }
+          - { name: heroSubtext, label: Hero subtext, widget: markdown, buttons: [bold, italic, link], minimal: true }
       - name: events
         label: Events Page
         file: content/pages/events.json
         fields:
           - { name: heroHeading, label: Hero heading, widget: string }
-          - { name: heroSubtext, label: Hero subtext, widget: text }
+          - { name: heroSubtext, label: Hero subtext, widget: markdown, buttons: [bold, italic, link], minimal: true }
       - name: galleryPage
         label: Gallery Page
         file: content/pages/gallery.json
@@ -169,4 +166,4 @@ collections:
         file: content/pages/contact.json
         fields:
           - { name: heroHeading, label: Hero heading, widget: string }
-          - { name: intro, label: Intro text, widget: text }
+          - { name: intro, label: Intro text, widget: markdown, buttons: [bold, italic, link], minimal: true }
