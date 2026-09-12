@@ -2,7 +2,7 @@
   "name": "Honey Bun",
   "description": "A soft, fluffy sweet roll swirled with buttery cinnamon sugar and honey. Topped with a honey vanilla glaze. Comes in a pack of 4.",
   "category": "Seasonal Menu",
-  "price": null,
+  "price": 20,
   "imageUrl": "/images/uploads/image5.jpeg",
   "featured": true,
   "order": 100
