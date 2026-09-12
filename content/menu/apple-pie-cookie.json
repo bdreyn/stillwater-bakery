@@ -2,7 +2,7 @@
   "name": "Apple Pie Cookie",
   "description": "A soft cookie filled with cinnamon spiced apples, topped with a golden brown sugar streusel and finished with a sweet vanilla glaze. Comes in a pack of 6.",
   "category": "Seasonal Menu",
-  "price": null,
+  "price": 30,
   "imageUrl": "/images/uploads/image3.jpeg",
   "featured": true,
   "order": 100
