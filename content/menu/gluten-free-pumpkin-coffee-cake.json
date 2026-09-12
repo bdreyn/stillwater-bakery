@@ -2,7 +2,7 @@
   "name": "Gluten-Free Pumpkin Coffee Cake",
   "description": "A warmly spiced pumpkin coffee cake topped with a buttery cinnamon crumb. Comes in a pack of 6.",
   "category": "Seasonal Menu",
-  "price": null,
+  "price": 30,
   "imageUrl": "/images/uploads/image1 (2).jpeg",
   "featured": true,
   "order": 100
