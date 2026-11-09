@@ -73,7 +73,7 @@
       "caption": "Oreo Cinnamon Roll"
     },
     {
-      "imageUrl": "/images/uploads/IMG_7932.jpeg",
+      "imageUrl": "/images/uploads/image2 (3).jpeg",
       "caption": "Jalapeno Dill Pickle Scone"
     },
     {
@@ -111,6 +111,10 @@
     {
       "imageUrl": "/images/uploads/image1 (3).jpeg",
       "caption": "Apple Pie Cookie"
+    },
+    {
+      "imageUrl": "/images/uploads/image0 (2).png",
+      "caption": "Maple Pecan Scone"
     }
   ]
 }
