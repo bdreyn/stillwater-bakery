@@ -31,7 +31,29 @@ export function initFadeIn() {
     });
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-  $$('.fade-in').forEach(el => observer.observe(el));
+  const elements = $$('.fade-in');
+  elements.forEach(el => observer.observe(el));
+
+  // iOS Safari throttles IntersectionObserver callbacks (worse in Low Power
+  // Mode) and can miss short intersection windows during fast flick-scrolls,
+  // leaving elements stuck at opacity:0 indefinitely even once scrolled into
+  // view. As a safety net, periodically force-reveal any element that is
+  // actually on screen but didn't get marked visible — elements still below
+  // the fold are left alone so the scroll-triggered animation is unaffected.
+  const revealInterval = setInterval(() => {
+    let pending = false;
+    elements.forEach(el => {
+      if (el.classList.contains('visible')) return;
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        el.classList.add('visible');
+        observer.unobserve(el);
+      } else {
+        pending = true;
+      }
+    });
+    if (!pending) clearInterval(revealInterval);
+  }, 1000);
 }
 
 // ---------------------------------------------------------------------------
